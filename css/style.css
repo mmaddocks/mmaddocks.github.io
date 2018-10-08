@@ -1,0 +1,47 @@
+/*
+-- CH01 -- NORMALIZE (External CSS file)
+-- CH02 -- BASE STYLES
+*/
+
+/* -------------------------------------------
+  * CH02 - Base styles
+---------------------------------------------- */
+
+
+/* UNIVERSALLY APPLIED */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}
+
+/* -------------------------------------------
+  * CH03 - Helper styles
+---------------------------------------------- */
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+/* -------------------------------------------
+  * CH04 - Holding page styles
+---------------------------------------------- */
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #4BC6B9;
+}
+
+.hero__logo {
+  width: 100px;
+}
