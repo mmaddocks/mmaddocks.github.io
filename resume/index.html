@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+
+    <!-- Take a look at my code. Any feedback is welcomed :) -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Tells IE to render in the highest mode -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Mark Maddocks">
+    <meta name="description" content="An interactive resume of web developer & web designer Mark Maddocks">
+
+    <!-- Title & Favicon -->
+    <title>Mark Maddocks - Web Developer & Designer Resume</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../myIcon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="resume.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header class="header-container">
+            <a id="back-home" href="/"> <!-- href="/" sends backwards -->
+                <img src="resume-images/logo.svg" width="33" height="28" alt="Mark Maddocks logo">
+            </a>
+            <div class="name-container">
+                <div class="name">
+                    <h1>Mark Maddocks</h1>
+                    <span class="mimic-cursor">|</span>
+                    <div class="search-container">
+                        <img src="resume-images/search_blue.svg" width="30" height="30" alt="search icon">
+                    </div>
+                </div>
+                <div class="name-keywords">
+                    <h2>Front-End Developer</h2>
+                    <h2>Designer</h2>
+                </div>
+            </div>
+            <a href="#" class="arrow-down-header"></a><!-- <button> causes glitch in iOS browsers-->
+        </header>
+
+        <div class="content-container clearfix">
+
+            <div id="about-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/logo.svg" width="33" height="28" alt="Mark Maddocks logo">
+                    </div>
+                    <h2>About</h2>
+                </div>
+                <div class="section-content">
+                    <p>A creative thinking, enthusiastic and self-motivated front-end web developer and designer.</p>
+                    <p>Focussed on visual communication, human interactions and user experience. Passionate about simplistic design and a mobile first approach.</p>
+                    <p>Currently studying in final semester - Diploma of Web Development.</p>
+                    <div id="email-button-container">
+                        <a id="email-button" href="mailto:hello@mmaddocks.com" role="button">Email Me</a>
+                    </div>
+                    <hr class="line">
+                    <div class="social-icons-container">
+                        <a href="https://au.linkedin.com/in/markmaddocks1"><img src="resume-images/linkedin.svg" width="25" height="25" alt="linkedin logo"></a>
+                        <a href="https://twitter.com/mark_maddocks"><img src="resume-images/twitter.svg" width="30" height="25" alt="twitter logo"></a>
+                        <a href="https://github.com/mmaddocks"><img src="resume-images/github.svg" width="25" height="25" alt="github logo"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="skills-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/skills.svg" width="30" height="30" alt="Skills gear icon">
+                    </div>
+                    <h2>Skills</h2>
+                </div>
+                <div class="section-content">
+                    <div class="skills-search-container">
+                        <div class="skill-type">
+                            <h3>Professional Skills</h3>
+                            <span class="mimic-cursor-skills">|</span>
+                            <div class="search-icon-container">
+                                <img src="resume-images/search_blue.svg" width="22" height="22" alt="search icon">
+                            </div>
+                        </div>
+                        <div class="skills-keywords">
+                            <ul>
+                                <li><img src="resume-images/html5.svg" width="22" height="25" alt="html logo">HTML5</li>
+                                <li><img src="resume-images/css.svg" width="22" height="25" alt="css logo">CSS</li>
+                                <li><img src="resume-images/js.svg" width="22" height="17" alt="javascript logo">JavaScript</li>
+                                <li><img src="resume-images/php.svg" width="22" height="11" alt="php logo">PHP</li>
+                                <li><img src="resume-images/mysql.svg" width="22" height="21" alt="mysql logo">MySQL</li>
+                                <li><img src="resume-images/bootstrap.svg" width="22" height="21" alt="bootstrap">Bootstrap</li>
+                                <li><img src="resume-images/wordpress.svg" width="22" height="22" alt="wordpress">Wordpress</li>
+                                <li><img src="resume-images/illustrator.svg" width="22" height="22" alt="illustrator logo">Adobe Illustrator</li>
+                                <li><img src="resume-images/photoshop.svg" width="22" height="22" alt="photoshop logo">Adove Photoshop</li>
+                            </ul>
+                        </div>
+                    </div> <!-- closing .skills-search-container -->
+                    <div class="skills-search-container">
+                        <div class="skill-type">
+                            <h3>Personal Skills</h3>
+                            <span class="mimic-cursor-skills">|</span>
+                            <div class="search-icon-container">
+                                <img src="resume-images/search_blue.svg" width="22" height="22" alt="search icon">
+                            </div>
+                        </div>
+                        <div class="skills-keywords">
+                            <ul>
+                                <li>Communication</li>
+                                <li>Team Work</li>
+                                <li>Creativity</li>
+                                <li>Dedication</li>
+                                <li>Attention to detail</li>
+                                <li>Flexible</li>
+                            </ul>
+                        </div>
+                    </div> <!-- closing .skills-search-container -->
+                </div>
+            </div> <!-- closing #skills-container -->
+
+            <div id="experience-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/experience.svg" width="32" height="30" alt="Education icon">
+                    </div>
+                    <h2>Experience</h2>
+                </div>
+                <div class="section-content">
+                    <div class="experience-description">
+                        <h3>Apple</h3>
+                        <h3>Technical Specialist</h3>
+                        <h4>2015 - Present</h4><h4 class="right-align">Australia</h4>
+                        <p>iOS | Troubleshooting | Team Work | Communication | Customer Facing</p>
+                        <p>Apple Certified iOS Technician<br>Working in a fast paced team environment to troubleshoot and resolve technical issues with customer's iOS devices, whilst delivering a high level of customer service.</p>
+                    </div>
+                    <div class="experience-description">
+                        <h3>TIBCO Software</h3>
+                        <h3>Business Development (Contract)</h3>
+                        <h4>2014 - 2015</h4><h4 class="right-align">Australia</h4>
+                        <p>Software Solutons | Lead Generation | Support Marketing | Database Admin</p>
+                        <p>Qualified enquiries, conveyed TIBCO Software's solutions and aligned with customer's scenario. Worked alongside marketing and sales teams to ensure strong communication and attended customer facing events.</p>
+                    </div>
+                    <div class="experience-description">
+                        <h3>Six Degrees / Apps World</h3>
+                        <h3>Relationship Manager</h3>
+                        <h4>2011 - 2014</h4><h4 class="right-align">UK / Australia</h4>
+                        <p>Account Management | Relationship building | Communication | Sales</p>
+                        <p>Built relationships with tech companies, such as Facebook, Amazon and Dropbox to boost their developer outreach. Founding member of the team and event that helped lead to the acquisiton by a publicly listed company.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="education-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/education.svg" width="35" height="30" alt="Education icon">
+                    </div>
+                    <h2>Education</h2>
+                </div>
+                <div class="section-content">
+                    <div class="education-description">
+                        <h3>TAFE</h3>
+                        <h3>Diploma of Website Development</h3>
+                        <h4>2015 - Present</h4><h4 class="right-align">Australia</h4>
+                        <p>HTML | CSS | JavasScript | PHP | MySQL | Bootstrap | Wordpress | Drupal</p>
+                        <p>Comprehensive grounding in the complete development cycle, from wireframing designs, development, testing and deployment.</p>
+                    </div>
+                    <div class="education-description">
+                        <h3>Sheffield Hallam University</h3>
+                        <h3>BA (HONS) Graphic Design and Visual Communication</h3>
+                        <h4>2007 - 2010</h4><h4 class="right-align">UK</h4>
+                        <p>Visual Design | Branding | Typography | Illustration | Advertising</p>
+                        <p>Dissertation Project: Analysing the use of design and marketing techniques to re-position 5 high profile global brands. </p>
+                    </div>
+                    <div class="education-description">
+                        <h3>Churchill Community School </h3>
+                        <h3>A-Levels </h3>
+                        <h4>2005 - 2007</h4><h4 class="right-align">UK</h4>
+                        <p>Business -- <span class="small">Final Grade: A</span><br>
+                        Product Design -- <span class="small">Final Grade: B</span><br>
+                        Fine Art -- <span class="small">Final Grade: A</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="interests-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/interests.svg" width="30" height="30" alt="Interests icon">
+                    </div>
+                    <h2>Interests</h2>
+                </div>
+                <div class="section-content">
+                    <div class="interests-images-container">
+                        <div class="interests-img-container">
+                            <img src="resume-images/interest_surf.svg" width="90" height="90" alt="surfing icon">
+                            <h5 class="interest-text">Surfing</h5>
+                        </div>
+                        <div class="interests-img-container">
+                            <img src="resume-images/interest_ski.svg" width="90" height="90" alt="skiing icon">
+                            <h5 class="interest-text">Skiing</h5>
+                        </div>
+                        <div class="interests-img-container">
+                            <img src="resume-images/interest_running.svg" width="90" height="90" alt="running icon">
+                            <h5 class="interest-text">Running</h5>
+                        </div>
+                        <div class="interests-img-container">
+                            <img src="resume-images/interest_diving.svg" width="90" height="90" alt="diving icon">
+                            <h5 class="interest-text">Diving</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="references-container" class="section-container">
+                <div class="section-title">
+                    <div class="section-image-container">
+                        <img src="resume-images/references.svg" width="30" height="30" alt="Education icon">
+                    </div>
+                    <h2>References</h2>
+                </div>
+                <div class="section-content">
+                    <p>Available on request</p>
+                </div>
+            </div>
+
+        </div> <!-- closing .content-container -->
+
+        <a class="arrow-up-top"></a><!-- <button> causes glitch in iOS browsers-->
+
+
+    </div> <!-- closing .container -->
+
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="resume-arrow-scroll.js"></script>
+
+    <!-- Google Analytics -->
+    <!-- <script src="js/googleAnalytics.js"></script> -->
+
+</body>
+</html>
