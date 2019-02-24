@@ -39,9 +39,19 @@ img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #4BC6B9;
+  background-image: url("../images/mm-hero-mountain.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .hero__logo {
   width: 100px;
+}
+
+.hero__credit {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 0.75em;
 }
