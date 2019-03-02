@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -24,8 +25,32 @@
       <img src="images/logo.svg" alt="">
     </div>
 
-    <span class="hero__credit">Photo credit:: Photo by Paul Gilmore on Unsplash</span>
+    <div class="hero__title">
+      <a href="/resume">
+        <h2>Hello, it's me</h2>
+        <h1>Mark.</h1>
+      </a>
+    </div>
+
+    <div class="hero__credit">
+      <span>Photo credit: Photo by Paul Gilmore on Unsplash</span>
+    </div>
+
   </section>
+
+  <script type="text/javascript">
+
+    $(document).ready(function() {
+
+      $('.hero__title').hover(function(){
+        $('.hero').addClass('hide-bg');
+      }, function() {
+        $('.hero').removeClass('hide-bg');
+      });
+
+    });
+
+  </script>
 
 </body>
 </html>
