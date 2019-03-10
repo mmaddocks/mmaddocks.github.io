@@ -1,0 +1,31 @@
+{
+  "name": "mmaddocks.github.io",
+  "version": "1.0.0",
+  "description": "Mark Maddocks - Web Developer & Designer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmaddocks/mmaddocks.github.io.git"
+  },
+  "keywords": [
+    "web",
+    "designer"
+  ],
+  "author": "Mark Maddocks",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/mmaddocks/mmaddocks.github.io/issues"
+  },
+  "homepage": "https://github.com/mmaddocks/mmaddocks.github.io#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "^2.6.5"
+  }
+}
