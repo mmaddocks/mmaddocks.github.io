@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ### `npm start`
 
-### Deployment to GitHub Pages
+## Deployment to GitHub Pages
 
 ### `npm run deploy`
 
