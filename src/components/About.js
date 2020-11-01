@@ -9,43 +9,9 @@ class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoaded: false
+      isLoaded: false,
     };
   }
-
-  // render() {
-  //   return (
-  //     <div className="about  page">
-  //       <img 
-  //         style={this.state.loaded ? {} : {display: 'none'}}
-  //         src={aboutHeroImage} alt="hero" 
-  //         onLoad={() => this.setState({loaded: true})}
-  //       />
-  //       <Link to="/">Got to Home</Link>
-  //     </div>
-  //   );
-  // }
-
-
-  // render() {
-  //   return (
-  //     <div className="about  page">
-  //       {this.state.isLoaded ? null :
-  //         <div className="loader"/>
-  //       }
-  //       <img
-  //         style={this.state.isLoaded ? {} : {display: 'none'}}
-  //         src={aboutHeroImage} alt="hero" 
-  //         onLoad={() => this.setState({isLoaded: true})}
-  //       />
-  //       <div style={this.state.isLoaded ? {} : {display: 'none'}}>
-  //         <Link to="/">Got to Home</Link>
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-
 
   render() {
     return (
@@ -53,10 +19,11 @@ class About extends React.Component {
         {/* {this.state.isLoaded ? null :
           <div className="loader"/>
         } */}
-        <div 
+        {/* <div 
           className={`about page smooth-image image-${
             this.state.isLoaded ? 'visible' : 'hidden'
-          }`} >
+          }`} > */}
+        <div className="about page">
           <img
             src={aboutHeroImage} alt="hero" 
             onLoad={() => this.setState({isLoaded: true})}
