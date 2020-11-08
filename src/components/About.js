@@ -2,7 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // UI
-import '../App.css';
+// import '../App.css';
+import '../styles/app.scss';
+import '../styles/components/_about.scss';
 import aboutHeroImage from '../assets/mountain-bg.jpg';
 
 class About extends React.Component {

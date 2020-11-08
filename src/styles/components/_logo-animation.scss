@@ -1,0 +1,39 @@
+/**
+ * SVG logo animation
+ */
+
+.logo {
+  svg {
+    position: absolute;
+    position: absolute;
+    width: auto;
+    height: 110%;
+    top: 5%;
+    left: 10%;
+
+    .stroke-layer {
+      stroke-dashoffset: 5882.404296875px;
+      stroke-dasharray: 5882.404296875px;
+      opacity: 1;
+    }
+
+    .gradient-layer {
+      opacity: 0;
+    }
+
+    &.animate {
+      transition: opacity 2s ease 1.75s;
+
+      .stroke-layer {
+        stroke-dashoffset: 0;
+        opacity: 0;
+        transition: stroke-dashoffset 2s cubic-bezier(0.47, 0, 0.745, 0.715) 0s, opacity 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+      }
+
+      .gradient-layer {
+        opacity: 1;
+        transition: opacity 1s cubic-bezier(0.47, 0, 0.745, 0.715) 1s;
+      }
+    }
+  }
+}

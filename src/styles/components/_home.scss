@@ -1,0 +1,163 @@
+/**
+ * Home page component
+ */
+
+.home {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden; /* for animation */
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: #24b9cc;
+  }
+
+  .welcome {
+    margin-top: auto;
+
+    @media (min-width: 576px) {
+      width: 75%;
+    }
+
+    @media (min-width: 768px) {
+      width: auto;
+    }
+
+    .welcome__title {
+
+      h1 {
+        margin: 0;
+        font-size: 3.75em;
+        font-weight: 700;
+        letter-spacing: -0.022em;
+        color: #2B2D42;
+
+        strong {
+          position: relative;
+          padding: 0 15px;
+          font-weight: inherit;
+  
+          &::before {
+            content: "";
+            width: 0;
+            height: 35%;
+            position: absolute;
+            left: 0;
+            z-index: -1;
+            bottom: 15px;
+            background-image: linear-gradient(45deg, #54ECFF, #49DAB9);
+            transition: width 1s ease;
+          }
+        }
+
+        @media (min-width: 768px) {
+          font-size: 4.5em;
+        }
+
+        @media (min-width: 992px) {
+          font-size: 6.25em;
+        }
+      }
+
+      &.show-highlight {
+        h1 {
+          strong {
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    .welcome__intro {
+      width: 100%;
+      margin-left: auto;
+      position: relative;
+      display: flex;
+      align-items: center;
+      font-size: 1.25em;
+
+      &::before {
+        content: "";
+        width: 50%;
+        height: 2px;
+        margin-right: 1em;
+        background-color: #24b9cc;
+      }
+
+      @media (min-width: 992px) {
+        font-size: 1.5em;
+      }
+    }
+
+    .welcome__link {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 1em;
+      font-size: 0.875em;
+      text-transform: uppercase;
+      letter-spacing: 0.044em;
+
+      svg {
+        margin-left: 0.5em;
+      }
+
+      @media (min-width: 768px) {
+        font-size: 1em;
+      }
+    }
+
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+
+    .links__item {
+      margin: 0 1em;
+      font-size: 0.875em;
+      transition: all 500ms ease-in-out;
+      text-transform: uppercase;
+      letter-spacing: 0.044em;
+
+      &::hover {
+        color: #2ccfe4;
+      }
+
+      @media (min-width: 768px) {
+        margin: 0 2em;
+      }
+    }
+  }
+
+  .logo {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+}

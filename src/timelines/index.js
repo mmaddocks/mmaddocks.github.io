@@ -1,14 +1,15 @@
-import { TimelineMax as Timeline, Power1 } from 'gsap';
+import { gsap } from 'gsap';
 
 const getAboutTimeline = (node, delay) => {
-  const timeline = new Timeline({ paused: true });
+  const timeline = gsap.timeline({ paused: true });
   // const content = node.querySelector('.content');
   // const contentInner = node.querySelector('.content--inner');
 
   timeline
-    .from(node, 0.5, { 
+    .from(node, { 
       opacity: 0,
       y: '5vh',
+      duration: 0.5,
       delay, 
     })
 
@@ -16,33 +17,30 @@ const getAboutTimeline = (node, delay) => {
 }
 
 const getAboutTimelineReverse = (node) => {
-  const timeline = new Timeline({ paused: true });
-  // const content = node.querySelector('.content');
-  // const contentInner = node.querySelector('.content--inner');
+  const timeline = gsap.timeline({ paused: true });
 
   timeline
-    .to(node, 0.5, { 
+    .to(node, { 
       opacity: 0,
       y: '5vh',
+      duration: 0.5,
     })
 
   return timeline;
 }
 
 const getDefaultTimeline = (node, delay) => {
-  const timeline = new Timeline({ paused: true });
+  const timeline = gsap.timeline({ paused: true });
   // const texts = node.querySelectorAll('h1 > div');
-
-  timeline.from(node, 0.5, {autoAlpha: 0, delay })
+  timeline.from(node, {autoAlpha: 0, duration: 0.5, delay })
 
   return timeline;
 }
 
 const getDefaultTimelineReverse = (node) => {
-  const timeline = new Timeline({ paused: true });
-  // const texts = node.querySelectorAll('h1 > div');
+  const timeline = gsap.timeline({ paused: true });
 
-  timeline.to(node, 0.5, {autoAlpha: 0})
+  timeline.to(node, {autoAlpha: 0, duration: 0.5,})
 
   return timeline;
 }
@@ -51,8 +49,9 @@ const getDefaultTimelineReverse = (node) => {
  * @desc onEnter page transition
  */
 export const play = (pathname, node, appears) => {
+
   const delay = appears ? 0 : 0.5;
-  let timeline
+  let timeline;
 
   if (pathname === '/about') {
     timeline = getAboutTimeline(node, delay);
@@ -60,21 +59,14 @@ export const play = (pathname, node, appears) => {
     timeline = getDefaultTimeline(node, delay);
   }
 
-  // window
-  //   .loadPromise
-  //   .then(() => requestAnimationFrame(() => timeline.play()))
   timeline.play();
 }
 
 /**
  * @desc onExit page transition
  */
-export const exit = (pathname, node, appears) => {
-  // const timeline = new Timeline({ paused: true });
-  // timeline.to(node, 0.5, { opacity: 0, ease: Power1.easeOut });
-  // timeline.play();
-
-  let timeline
+export const exit = (pathname, node) => {
+  let timeline;
 
   if (pathname === '/about') {
     timeline = getAboutTimelineReverse(node);
@@ -83,5 +75,11 @@ export const exit = (pathname, node, appears) => {
   }
 
   timeline.play();
+
+  // if (pathname === '/about') {
+  //   timeline = getAboutTimeline(node);
+  //   timeline.reverse();
+  //   console.log('Timeline reversed? on exit(): ', timeline.reversed());
+  // }
 
 }
