@@ -10,12 +10,12 @@ class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="app">
+        {/* <div className="app"> */}
           <Route render={({ location }) => {
             const { pathname, key } = location;
 
             return (
-              <TransitionGroup>
+              <TransitionGroup className="app">
                 <Transition
                   key={key}
                   appear={true}
@@ -31,7 +31,7 @@ class App extends React.Component {
               </TransitionGroup>
             )
           }}/>
-        </div>
+        {/* </div> */}
       </BrowserRouter>
     )
   }

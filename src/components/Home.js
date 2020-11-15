@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
+import { gsap } from 'gsap';
 
 // UI
 import '../styles/app.scss';
@@ -7,6 +8,23 @@ import '../styles/components/_home.scss';
 import '../styles/components/_logo-animation.scss';
 
 class Home extends React.Component {
+
+  componentDidMount() {
+    console.log('mounted');
+    this.homePageTimeline();
+  };
+
+   homePageTimeline = () => {
+    // const timeline = gsap.timeline({ paused: true });
+    const timeline = gsap.timeline();
+
+    timeline.set('.home .logo', { className: 'logo animate'}); // working on parent
+    // timeline.call(function() {
+    //   document.getElementById('logo').setAttribute('class', 'animate');
+    // })
+  
+    return timeline;
+  }
 
   render() {
     return (
@@ -29,15 +47,15 @@ class Home extends React.Component {
           </div>
 
           <div className="links">
-            <a href="#" className="resume  links__item">Resume</a>
-            <a href="#" className="github  links__item">Github</a>
-            <a href="#" className="linkedin  links__item">LinkedIn</a>
+            <a href="https://www.google.com/" className="resume  links__item">Resume</a>
+            <a href="https://www.google.com/" className="github  links__item">Github</a>
+            <a href="https://www.google.com/" className="linkedin  links__item">LinkedIn</a>
           </div>
         </div>
 
         <div className="logo">
 
-          <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-1 -1 985.935 828.301">
+          <svg id="logo" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="-1 -1 985.935 828.301">
             <defs>
               <linearGradient id="linear-gradient" y1="1" x2="0.537" y2="0.196" gradientUnits="objectBoundingBox">
                 <stop offset="0" stopColor="#54ECFF"/>

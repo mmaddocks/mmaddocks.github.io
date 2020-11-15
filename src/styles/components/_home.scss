@@ -1,6 +1,9 @@
 /**
- * Home page component
+ * Home page styles
  */
+
+@import '../variables';
+@import '../mixins';
 
 .home {
   display: flex;
@@ -14,24 +17,24 @@
     padding: 20px;
     overflow: hidden; /* for animation */
 
-    @media (min-width: 768px) {
+    @include media-breakpoint(md) {
       width: 50%;
     }
   }
 
   a {
     text-decoration: none;
-    color: #24b9cc;
+    color: $secondary-colour;
   }
 
   .welcome {
     margin-top: auto;
 
-    @media (min-width: 576px) {
+    @include media-breakpoint(sm) {
       width: 75%;
     }
 
-    @media (min-width: 768px) {
+    @include media-breakpoint(md) {
       width: auto;
     }
 
@@ -42,7 +45,7 @@
         font-size: 3.75em;
         font-weight: 700;
         letter-spacing: -0.022em;
-        color: #2B2D42;
+        color: $font-colour;
 
         strong {
           position: relative;
@@ -57,16 +60,16 @@
             left: 0;
             z-index: -1;
             bottom: 15px;
-            background-image: linear-gradient(45deg, #54ECFF, #49DAB9);
+            background-image: linear-gradient(45deg, $gradient-blue, $gradient-green);
             transition: width 1s ease;
           }
         }
 
-        @media (min-width: 768px) {
+        @include media-breakpoint(md) {
           font-size: 4.5em;
         }
 
-        @media (min-width: 992px) {
+        @include media-breakpoint(lg) {
           font-size: 6.25em;
         }
       }
@@ -95,10 +98,10 @@
         width: 50%;
         height: 2px;
         margin-right: 1em;
-        background-color: #24b9cc;
+        background-color: $secondary-colour;
       }
 
-      @media (min-width: 992px) {
+      @include media-breakpoint(lg) {
         font-size: 1.5em;
       }
     }
@@ -116,7 +119,7 @@
         margin-left: 0.5em;
       }
 
-      @media (min-width: 768px) {
+      @include media-breakpoint(md) {
         font-size: 1em;
       }
     }
@@ -136,11 +139,11 @@
       text-transform: uppercase;
       letter-spacing: 0.044em;
 
-      &::hover {
-        color: #2ccfe4;
+      &:hover {
+        color: $highlight-colour;
       }
 
-      @media (min-width: 768px) {
+      @include media-breakpoint(md) {
         margin: 0 2em;
       }
     }
@@ -152,11 +155,11 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    overflow: hidden;
+    // overflow: hidden;
     pointer-events: none;
     display: none;
 
-    @media (min-width: 768px) {
+    @include media-breakpoint(md) {
       display: block;
     }
   }
