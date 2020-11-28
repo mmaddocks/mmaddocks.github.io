@@ -2,24 +2,233 @@
  * About page component
  */
 
+@import '../variables';
+@import '../mixins';
+
 .about {
-  img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+
+  a {
     position: absolute;
-    top: 0;
-    object-fit: cover;
-    z-index: 0;
+    top: 25px;
+    left: 25px;
+    color: #fff;
   }
 
-  &::after {
-    content: "";
+  .hero {
     width: 100%;
-    height: 50vh;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(to bottom, white, transparent);
+    height: 100vh;
+    /* perspective stuff */
+    perspective: 400px;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    transition: perspective 1s;
+
+    .hero__content {
+      width: 100%;
+      height: 100%;
+      transform: translateZ(0);
+    }
+
+    .background-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      pointer-events: none;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: right;
+
+        @include media-breakpoint(sm) {
+          object-position: center 25%;
+        }
+
+        &.mountain-clipping {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+        }
+
+      }
+    
+      &::after {
+        content: "";
+        width: 100%;
+        height: 50vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(to bottom, #fff, transparent);
+      }
+    }
+
+    /* ==============================
+     * About page: Title 
+    ============================== */
+    .title-container {
+      position: absolute;
+      margin-top: 50px;
+      right: 10px;
+
+      @include media-breakpoint(sm) {
+        width: 100%;
+        max-width: 435px;
+        left: 0;
+        right: 0;
+        margin: 50px auto 0 auto;
+      }
+    }
+
+    .title {
+      margin: 0;
+      font-size: 7em;
+      text-align: right;
+      line-height: 0.75;
+      color: #fff;
+      // text clip styles
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-image: linear-gradient(to bottom, #8ebfce, transparent);
+
+      @include media-breakpoint(sm) {
+        font-size: 10em;
+        text-align: initial;
+      }
+
+      @include media-breakpoint(md) {
+        max-width: 625px;
+      }
+
+      &.title--me {
+        @include media-breakpoint(sm) {
+          text-align: right;
+        } 
+      }
+    }
+
+    /* ==============================
+     * About page: Buttons 
+    ============================== */
+    button {
+      cursor: pointer;
+      transition: all 500ms ease;
+
+      &.open {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        z-index: 1;
+
+        &[data-target='#climbing'] {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+
+        &[data-target='#skiing'] {
+          top: 45vh;
+          right: 15%;
+        }
+
+        &[data-target='#surfing'] {
+          bottom: 25%;
+          right: 75px;
+        }
+
+        &[data-target='#skiing'],
+        &[data-target='#surfing'] {
+          .tooltip {
+            left: auto;
+            right: 0;
+
+            .text {
+              padding: 0 35px 0 15px;
+            }
+          }
+        }
+
+        svg {
+          width: 15px;
+          height: 15px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px;
+          border-radius: 50%;
+          color: #fff;
+          background-color: $secondary-colour;
+          z-index: 1;
+          transition: all 500ms ease;
+        }
+
+        &:hover {
+          svg {
+            background-color: $highlight-colour;
+            transition: all 500ms ease;
+          }
+        }
+      }
+
+      // Interest close button
+      &.close {
+        position: absolute;
+        top: 25px;
+        left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border: none;
+        outline: none;
+        background-color: transparent;
+  
+        button.close {
+          @include media-breakpoint(sm) {
+            left: 50px;
+          }
+        }
+      }
+    }
+
+    // Tooltip styles
+    .tooltip {
+      height: 100%;
+      position: absolute;
+      left: 1px;
+      display: flex;
+      align-items: center;
+      z-index: 0;
+      font-size: 12px;
+      line-height: 1;
+      border-radius: 20px;
+      background-color: #fff;
+      // opacity: 0; /* animate this */
+      // width: 0; /* animate this */
+
+      .text {
+        padding: 0 15px 0 35px;
+        color: $tooltip-text-colour;
+        opacity: 0;
+      }
+    }
+
+    // Home icon
+    .home-btn {
+      color: $secondary-colour;
+    }
+
   }
 
 }

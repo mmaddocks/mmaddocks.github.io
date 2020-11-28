@@ -87,10 +87,10 @@
 
     .welcome__intro {
       width: 100%;
-      margin-left: auto;
-      position: relative;
       display: flex;
       align-items: center;
+      margin-left: auto;
+      position: relative;
       font-size: 1.25em;
 
       &::before {
@@ -155,7 +155,6 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    // overflow: hidden;
     pointer-events: none;
     display: none;
 

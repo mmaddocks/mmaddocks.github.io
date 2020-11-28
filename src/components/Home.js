@@ -1,29 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import { gsap } from 'gsap';
+import { ArrowRight } from 'react-feather';
 
 // UI
 import '../styles/app.scss';
 import '../styles/components/_home.scss';
-import '../styles/components/_logo-animation.scss';
+import '../styles/partials/_logo-animation.scss';
 
 class Home extends React.Component {
 
   componentDidMount() {
-    console.log('mounted');
+    this.stageHomePage();
+  };
+
+  stageHomePage = () => {
+    // Set elements position
+    gsap.set('.home .content h1', { opacity: 0, translateY: '100px'});
+    gsap.set('.home .content .welcome__intro', { opacity: 0, translateX: '-50px'});
+    gsap.set('.home .content .welcome__link', { opacity: 0, translateX: '-50px'});
+    gsap.set('.home .content .links', { opacity: 0, translateY: '10px'});
+
+    // Init timeline
     this.homePageTimeline();
   };
 
-   homePageTimeline = () => {
-    // const timeline = gsap.timeline({ paused: true });
+  homePageTimeline = () => {
+    // Timeline
     const timeline = gsap.timeline();
-
+    
+    // Title
+    timeline.staggerTo('.home .content h1', 1, {translateY: 0, opacity: 1, stagger: 0.5 });
+    // Title highlight
+    timeline.set('.home .welcome__title', { className: 'welcome__title show-highlight'});
+    // Draw logo
     timeline.set('.home .logo', { className: 'logo animate'}); // working on parent
-    // timeline.call(function() {
-    //   document.getElementById('logo').setAttribute('class', 'animate');
-    // })
-  
+    // Intro
+    timeline.to('.home .content .welcome__intro', {translateX: 0, opacity: 1, duration: 1 });
+    // Learn more button
+    timeline.to('.home .content .welcome__link', {translateX: 0, opacity: 1, duration: 1, delay: 0.5 });
+    // Links
+    timeline.to('.home .content .links', {translateY: 0, opacity: 1, duration: 0.5, });
+
     return timeline;
+
   }
 
   render() {
@@ -42,14 +62,14 @@ class Home extends React.Component {
 
             <Link to="/about" className="welcome__link">
               <span>Learn more</span>
-              <i data-feather="arrow-right"></i>
+              <ArrowRight/>
             </Link>
           </div>
 
           <div className="links">
-            <a href="https://www.google.com/" className="resume  links__item">Resume</a>
-            <a href="https://www.google.com/" className="github  links__item">Github</a>
-            <a href="https://www.google.com/" className="linkedin  links__item">LinkedIn</a>
+            <a href="/resume" className="resume  links__item" target="_blank" rel="noreferrer">Resume</a>
+            <a href="https://github.com/mmaddocks" className="github  links__item" target="_blank" rel="noreferrer">Github</a>
+            <a href="https://www.linkedin.com/in/markmaddocks1/" className="linkedin  links__item" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>
         </div>
 
