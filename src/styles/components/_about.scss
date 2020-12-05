@@ -220,7 +220,8 @@
       .text {
         padding: 0 15px 0 35px;
         color: $tooltip-text-colour;
-        opacity: 0;
+        // opacity: 0; /* animate this */
+        text-transform: capitalize;
       }
     }
 
@@ -229,6 +230,6 @@
       color: $secondary-colour;
     }
 
-  }
+  }  
 
 }

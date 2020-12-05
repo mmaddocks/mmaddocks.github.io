@@ -18,9 +18,10 @@
 
   &:hover {
     &::before {
-      animation: inherit; /* unset animation on hover */
+      animation: initial; /* unset animation on hover */
     }
   }
+
 }
 
 /* pulse button */

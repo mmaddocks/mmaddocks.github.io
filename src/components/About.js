@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { gsap } from 'gsap';
+import { gsap } from 'gsap/all';
 import { Home, Plus } from 'react-feather';
+
+// Images
 import HeroImage from '../assets/mountain-bg.jpg';
 import HeroImageClipping from '../assets/mountain-bg-clipping.png';
 
@@ -9,13 +11,81 @@ import HeroImageClipping from '../assets/mountain-bg-clipping.png';
 import '../styles/app.scss';
 import '../styles/components/_about.scss';
 import '../styles/partials/_pulse-animation.scss';
+import '../styles/partials/_InterestButton-animation.scss';
+
+
+class InterestButton extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShown: false,
+    };
+
+    this.tooltipRef = null;
+    this.textRef = null;
+    this.timeline = gsap.timeline({ paused: true });
+  }
+
+  componentDidMount = () => {
+    this.toolTipAnimation();
+	}
+
+  onMouseEnterHandler = () => {
+    this.setState({isShown: true});
+    this.timeline.play();
+  }
+
+  onMouseLeaveHandler = () => {
+    this.setState({isShown: false});
+    this.timeline.reverse();
+  }
+
+  toolTipAnimation = () => {
+    gsap.set(this.tooltipRef, { width: 0, autoAlpha: 0, });
+    gsap.set(this.textRef, { opacity: 0, });
+
+    this.timeline
+      .to(this.tooltipRef, { 
+        width: 'auto', 
+        autoAlpha: 1, 
+        duration: 0.5, 
+      })
+      .to(this.textRef, { 
+        opacity: 1, 
+        duration: 0.250, 
+      });
+  }
+
+  render() {
+    return (
+      <button 
+        className="open  pulse" 
+        data-target={'#' + this.props.interest} 
+        type="button" 
+        onMouseEnter={this.onMouseEnterHandler}
+        onMouseLeave={this.onMouseLeaveHandler}>
+        {/* {this.state.isShown && ( */}
+          <div className="tooltip" ref={div => this.tooltipRef = div}>
+            <span className="text" ref={span => this.textRef = span}>{this.props.interest}</span>
+          </div>
+        {/* )} */}
+        <Plus />
+      </button>
+    );
+  }
+
+}
 
 class About extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isLoaded: false,
-      isShown: false,
+      interests: [
+        'climbing',
+        'skiing',
+        'surfing',
+      ]
     };
   }
 
@@ -51,8 +121,6 @@ class About extends React.Component {
   }
 
   render() {
-
-    console.log('Tooltip show? ', this.state.isShown);
     return (
       <div className="about  page">
 
@@ -77,31 +145,11 @@ class About extends React.Component {
               <h1 className="title--me  title">me</h1>
             </div>
         
-            <button 
-              className="open  pulse" 
-              data-target="#climbing" 
-              type="button" 
-              onMouseEnter={() => this.setState({isShown: true})}
-              onMouseLeave={() => this.setState({isShown: false})}>
-              {this.state.isShown && (
-                <div className="tooltip">
-                  <span className="text">Climbing</span>
-                </div>
-              )}
-              <Plus />
-            </button>
-            <button className="open  pulse" data-target="#skiing" type="button">
-              <div className="tooltip">
-                <span className="text">Skiing</span>
-              </div>
-              <Plus />
-            </button>
-            <button className="open  pulse" data-target="#surfing" type="button">
-              <div className="tooltip">
-                <span className="text">Surfing</span>
-              </div>
-              <Plus />
-            </button>
+            {this.state.interests.map((interest, index) => {
+              return (
+                <InterestButton key={index} index={index} interest={interest} />
+              );
+            })}
     
             <Link className="home-btn" to="/"><Home /></Link>
         

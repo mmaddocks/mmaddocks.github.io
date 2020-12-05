@@ -1,0 +1,39 @@
+/**
+ * InterestButton animation via <CSSTransition>
+ */
+
+// Tooltip
+.alert-enter {
+  opacity: 0;
+  width: 0;
+}
+.alert-enter-active {
+  opacity: 1;
+  width: 100px;
+  transition: width 500ms, opacity 500ms;
+}
+.alert-exit {
+  width: 0;
+  opacity: 0;
+}
+.alert-exit-active {
+  opacity: 0;
+  width: 0;
+  transition: width 500ms, opacity 500ms;
+}
+
+
+.alert-enter .text {
+  opacity: 0;
+}
+.alert-enter-active .text {
+  opacity: 1;
+  transition: opacity 250ms ease 500ms;
+}
+.alert-exit .text {
+  opacity: 0;
+}
+.alert-exit-active .text {
+  opacity: 0;
+  transition: opacity 250ms;
+}
