@@ -120,67 +120,6 @@
       cursor: pointer;
       transition: all 500ms ease;
 
-      &.open {
-        position: absolute;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        border: none;
-        outline: none;
-        background-color: transparent;
-        z-index: 1;
-
-        &[data-target='#climbing'] {
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-
-        &[data-target='#skiing'] {
-          top: 45vh;
-          right: 15%;
-        }
-
-        &[data-target='#surfing'] {
-          bottom: 25%;
-          right: 75px;
-        }
-
-        &[data-target='#skiing'],
-        &[data-target='#surfing'] {
-          .tooltip {
-            left: auto;
-            right: 0;
-
-            .text {
-              padding: 0 35px 0 15px;
-            }
-          }
-        }
-
-        svg {
-          width: 15px;
-          height: 15px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 5px;
-          border-radius: 50%;
-          color: #fff;
-          background-color: $secondary-colour;
-          z-index: 1;
-          transition: all 500ms ease;
-        }
-
-        &:hover {
-          svg {
-            background-color: $highlight-colour;
-            transition: all 500ms ease;
-          }
-        }
-      }
-
       // Interest close button
       &.close {
         position: absolute;
@@ -199,29 +138,6 @@
             left: 50px;
           }
         }
-      }
-    }
-
-    // Tooltip styles
-    .tooltip {
-      height: 100%;
-      position: absolute;
-      left: 1px;
-      display: flex;
-      align-items: center;
-      z-index: 0;
-      font-size: 12px;
-      line-height: 1;
-      border-radius: 20px;
-      background-color: #fff;
-      // opacity: 0; /* animate this */
-      // width: 0; /* animate this */
-
-      .text {
-        padding: 0 15px 0 35px;
-        color: $tooltip-text-colour;
-        // opacity: 0; /* animate this */
-        text-transform: capitalize;
       }
     }
 

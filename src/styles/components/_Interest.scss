@@ -1,0 +1,71 @@
+/**
+ * Interest component
+ */
+
+@import '../variables';
+@import '../mixins';
+
+.interest {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: none;
+  align-items: center;
+  overflow: hidden;
+
+  .background-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0 auto;
+  }
+
+  .interest__content {
+    width: 100%;
+    max-width: 992px;
+    margin: 0 auto;
+    padding: 20px;
+
+    .interest__title {
+      position: relative;
+      padding-left: 1rem;
+      padding-right: 1rem;
+
+      // highlight
+      &::before {
+        content: "";
+        width: 0;
+        height: 35%;
+        position: absolute;
+        left: 0;
+        z-index: -1;
+        bottom: 20px;
+        background-color: #54ecff;
+        transition: width 1s ease;
+      }
+
+      &.show-hightlight {
+        &::before {
+          width: 100%;
+        }
+      }
+
+      svg {
+        width: 100%;
+        height: auto;
+        color: #3a3a3a;
+
+        &.show-bg {
+          background-size: 100% 35%;
+        }
+      }
+    }
+
+    p {
+      display: none;
+    }
+  }
+}
