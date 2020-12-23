@@ -3,11 +3,6 @@ import { Link } from 'react-router-dom'
 import { gsap } from 'gsap';
 import { ArrowRight } from 'react-feather';
 
-// UI
-import '../styles/app.scss';
-import '../styles/components/_home.scss';
-import '../styles/partials/_logo-animation.scss';
-
 class Home extends React.Component {
 
   componentDidMount() {
