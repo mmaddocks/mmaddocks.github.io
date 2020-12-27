@@ -23,21 +23,6 @@ class About extends React.Component {
       ],
       showInterest: false,
       selectedInterest: '',
-      // selectedInterest: 0,
-      // interests: [
-      //   {
-      //     title: 'climbing',
-      //     image: climbingBg
-      //   },
-      //   {
-      //     title: 'skiing',
-      //     image: skiingBg
-      //   },
-      //   {
-      //     title: 'surfing',
-      //     image: surfingBg
-      //   },        
-      // ],
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -89,7 +74,13 @@ class About extends React.Component {
     // setState is asynchronous
     // console.log will execute before state is updated
     this.setState({ selectedInterest: interest, }, () => { 
-      console.log('(About.js) selectedInterest:', this.state.selectedInterest);
+      // console.log('(About.js) selectedInterest:', this.state.selectedInterest);
+    });
+  }
+
+  handleInterestUnmount = () => {
+    this.setState({
+      showInterest: false,
     });
   }
 
@@ -135,31 +126,14 @@ class About extends React.Component {
           </div>
         </section>
 
-        {/* {this.state.interests.map((interest, index) => {
-          return (
-            <Interest 
-              key={index} 
-              index={index} 
-              interest={interest} 
-              showInterest={this.state.showInterest}
-              selectedInterest={this.state.selectedInterest}
-            />
-          );
-        })} */}
-
         {this.state.showInterest &&
           <AboutInterest 
             interest={this.state.selectedInterest}
             showInterest={this.state.showInterest}
             // image={this.state.interests[this.state.selectedInterest].image}
+            unmountComponent={this.handleInterestUnmount}
           />
         }
-
-        {/* <AboutInterest 
-          interest={this.state.selectedInterest}
-          showInterest={this.state.showInterest}
-          // image={this.state.interests[this.state.selectedInterest].image}
-        /> */}
 
       </div>
     );

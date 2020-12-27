@@ -5,21 +5,25 @@ import { ArrowLeft } from 'react-feather';
 class AboutInterest extends React.Component {
   constructor(props) {
     super(props);
-
     this.interestRef = null;
     this.imageRef = null;
-    this.timeline = gsap.timeline({ paused: true });
+    this.timeline = gsap.timeline({ 
+      paused: true, 
+      onComplete: this.interestAnimationComplete, 
+      onReverseComplete: this.interestAnimationReverseComplete, 
+    });
   }
 
   componentDidMount = () => {
-    console.log('1) Interest component mounted');
-
+    // this.getViewportSize();
     this.interestAnimation();
-    // this.timeline.play();
-    // Slightly smoother with setTimeout
-    setTimeout(() => {
-      this.timeline.play();
-    }, 1000);
+    this.timeline.play();
+
+    window.addEventListener('resize', this.handleResize);
+  }
+
+  componentWillUnmount = () => {
+    window.removeEventListener('resize', this.handleResize);
   }
 
   /**
@@ -45,6 +49,15 @@ class AboutInterest extends React.Component {
       imageTranslateX = '-25vw';
     }
 
+    // this.setState({ 
+    //   width: imageWidth,
+    //   translateX: imageTranslateX,
+    // }, () => { 
+    //   console.log('Set state:', this.state.width);
+    //   console.log('Set state:', this.state.translateX);
+    //   // this.interestAnimation();
+    // });
+
     return {
       width: imageWidth,
       translateX: imageTranslateX,
@@ -52,13 +65,39 @@ class AboutInterest extends React.Component {
   }
 
   interestAnimation = () => {
-    console.log('2) Interest animation called');
-
     // Store image animation values
-    const imageAnimationProps = this.getViewportSize();
+    const imageAnimation = this.getViewportSize();
 
     gsap.set(this.interestRef, { autoAlpha: 0, });
     gsap.set(this.imageRef, { clipPath: 'circle(0% at 50% 50%)'});
+
+    if (this.props.interest === 'climbing') {
+      this.timeline.to('.hero .hero__content', { 
+        z: 500, 
+        duration: 1, 
+        ease: 'power2.out',
+      });
+    }
+
+    if (this.props.interest === 'skiing') {
+      this.timeline.to('.hero .hero__content', { 
+        x: '-43%',
+        y: '4%',
+        z: 500, 
+        duration: 1, 
+        ease: 'power2.out',
+      });
+    }
+
+    if (this.props.interest === 'surfing') {
+      this.timeline.to('.hero .hero__content', { 
+        x: '-55%',
+        y: '-28%',
+        z: 500, 
+        duration: 1, 
+        ease: 'power2.out',
+      });
+    }
 
     this.timeline
       // Reveal interest
@@ -66,7 +105,7 @@ class AboutInterest extends React.Component {
         display: 'flex',
         autoAlpha: 1,
         duration: 0.001,
-      }, "-=0.4")
+      })
 
       // Reveal interest bg
       .to(this.imageRef, { 
@@ -78,13 +117,13 @@ class AboutInterest extends React.Component {
       .to(this.imageRef, { 
         clipPath: 'circle(45% at 50% 45%)',
         duration: 1,
-      }, "-=0.75")
+      })
 
       // Move clip-path & resize .background-container
       .to(this.imageRef, {
-        width: imageAnimationProps.width,
-        height: imageAnimationProps.width,
-        translateX: imageAnimationProps.translateX,
+        width: imageAnimation.width,
+        height: imageAnimation.width,
+        translateX: imageAnimation.translateX,
         duration: 0.5,
       })
 
@@ -119,6 +158,55 @@ class AboutInterest extends React.Component {
         ease: "power4.in",
       });
   }
+
+  handleClick = () => {
+    // this.timeline.reverse();
+    this.reverseAnimation();
+  }
+
+  interestAnimationComplete = () => {
+    // console.log('Animation has finished');
+  }
+
+  interestAnimationReverseComplete = () => {
+    // console.log('Animation has finished in reverse');
+
+    this.props.unmountComponent(this.props.interest);
+  }
+
+  // Window resize
+  handleResize = () => {
+    // console.log('Window width:', window.innerWidth);
+    // console.log('Window height:', window.innerHeight);
+
+    // Store image animation values
+    const imageAnimation = this.getViewportSize();
+
+    gsap.set(this.imageRef, {
+      width: imageAnimation.width,
+      height: imageAnimation.width,
+      translateX: imageAnimation.translateX,
+    });
+  }
+
+  // Manual reverse option to overcome resize issue when interest is open
+  reverseAnimation = () => {
+    const reverseTL = gsap.timeline({
+      onComplete: this.interestAnimationReverseComplete
+    });
+
+    reverseTL
+      .to(this.imageRef, { clipPath: 'circle(0% at 50% 50%)', duration: 1 })
+      .to(this.interestRef, { autoAlpha: 0, duration: 0.001 })
+      .to('.hero .hero__content', { 
+        x: 0,
+        y: 0,
+        z: 0,  
+        duration: 1, 
+        ease: 'power2.out',
+      });
+
+  }
   
   render() {
 
@@ -144,7 +232,7 @@ class AboutInterest extends React.Component {
             <div className="interest__title  animate">
             </div>
             <p className="animate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <button className="close" data-target={`#${this.props.interest}`}>
+            <button className="close interest-btn" onClick={this.handleClick}>
               <ArrowLeft />
             </button>
           </div>

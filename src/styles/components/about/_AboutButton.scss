@@ -17,24 +17,24 @@
     background-color: transparent;
     z-index: 1;
 
-    &[data-target='#climbing'] {
+    &.climbing {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
 
-    &[data-target='#skiing'] {
+    &.skiing {
       top: 45vh;
       right: 15%;
     }
 
-    &[data-target='#surfing'] {
+    &.surfing {
       bottom: 25%;
       right: 75px;
     }
 
-    &[data-target='#skiing'],
-    &[data-target='#surfing'] {
+    &.skiing,
+    &.surfing {
       .tooltip {
         left: auto;
         right: 0;

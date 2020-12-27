@@ -58,9 +58,7 @@ class AboutButton extends React.Component {
   render() {
     return (
       <button 
-        className="interest-btn open  pulse" 
-        data-target={'#' + this.props.interest} 
-        type="button" 
+        className={`${this.props.interest}  interest-btn  open  pulse`} 
         onClick={this.setInterest}
         onMouseEnter={this.onMouseEnterHandler}
         onMouseLeave={this.onMouseLeaveHandler}>
