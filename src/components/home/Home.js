@@ -62,7 +62,8 @@ class Home extends React.Component {
           </div>
 
           <div className="links">
-            <a href="/resume" className="resume  links__item" target="_blank" rel="noreferrer">Resume</a>
+            {/* <a href="/resume" className="resume  links__item" target="_blank" rel="noreferrer">Resume</a> */}
+            <Link to="/resume" className="resume  links__item">Resume</Link>
             <a href="https://github.com/mmaddocks" className="github  links__item" target="_blank" rel="noreferrer">Github</a>
             <a href="https://www.linkedin.com/in/markmaddocks1/" className="linkedin  links__item" target="_blank" rel="noreferrer">LinkedIn</a>
           </div>

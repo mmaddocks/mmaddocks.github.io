@@ -9,10 +9,12 @@
   top: 0;
   align-items: center;
   overflow: hidden;
-  // background-color: #fff;
-  visibility: hidden;
-  opacity: 0;
-  display: none;
+  /* perspective stuff */
+  perspective: 400px;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: perspective 1s;
 
 
   .background-container {
@@ -48,11 +50,12 @@
         left: 0;
         z-index: -1;
         bottom: 20px;
-        background-color: #54ecff;
+        // background-image: linear-gradient(45deg, $gradient-blue, $gradient-green);
+        background-color: $gradient-blue;
         transition: width 1s ease;
       }
 
-      &.show-hightlight {
+      &.show-highlight {
         &::before {
           width: 100%;
         }
@@ -61,7 +64,8 @@
       svg {
         width: 100%;
         height: auto;
-        color: #3a3a3a;
+        color: $dark-grey;
+        // color: $primary-colour;
 
         &.show-bg {
           background-size: 100% 35%;
@@ -69,8 +73,23 @@
       }
     }
 
-    p {
-      display: none;
+    .interest-btn {
+      &.close {
+        position: absolute;
+        top: 25px;
+        left: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        border: none;
+        outline: none;
+        background-color: transparent;
+
+        @include media-breakpoint(lg) {
+          left: 50px;
+        }
+      }
     }
   }
 }

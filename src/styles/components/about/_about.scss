@@ -28,6 +28,17 @@
       width: 100%;
       height: 100%;
       transform: translateZ(0);
+
+      // Blend edge?
+      &::after {
+        content: "";
+        width: 51vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: -46vw;
+        background: linear-gradient(to left, #fff 90%, transparent);
+      }
     }
 
     .background-image {
@@ -110,39 +121,19 @@
       }
     }
 
-    /* ==============================
-     * About page: Buttons 
-    ============================== */
-    button {
-      cursor: pointer;
-      transition: all 500ms ease;
-
-      // Interest close button
-      &.close {
-        position: absolute;
-        top: 25px;
-        left: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-        border: none;
-        outline: none;
-        background-color: transparent;
-  
-        button.close {
-          @include media-breakpoint(sm) {
-            left: 50px;
-          }
-        }
-      }
-    }
-
     // Home icon
     .home-btn {
       color: $secondary-colour;
     }
 
-  }  
+  } 
+  
+  /* ==============================
+   * About page: Buttons 
+  ============================== */
+  .interest-btn {
+    cursor: pointer;
+    transition: all 500ms ease;
+  }
 
 }

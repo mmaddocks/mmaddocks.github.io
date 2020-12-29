@@ -3,9 +3,6 @@
  */
 
 .interest-btn {
-  cursor: pointer;
-  transition: all 500ms ease;
-
   &.open {
     position: absolute;
     display: flex;

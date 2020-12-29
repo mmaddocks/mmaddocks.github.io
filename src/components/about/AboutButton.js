@@ -58,12 +58,14 @@ class AboutButton extends React.Component {
   render() {
     return (
       <button 
-        className={`${this.props.interest}  interest-btn  open  pulse`} 
+        className={`${this.props.interest.name}  interest-btn  open  pulse`} 
         onClick={this.setInterest}
         onMouseEnter={this.onMouseEnterHandler}
         onMouseLeave={this.onMouseLeaveHandler}>
         <div className="tooltip" ref={div => this.tooltipRef = div}>
-          <span className="text" ref={span => this.textRef = span}>{this.props.interest}</span>
+          <span className="text" ref={span => this.textRef = span}>
+            {this.props.interest.name}
+          </span>
         </div>
         <Plus />
       </button>

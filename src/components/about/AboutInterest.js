@@ -9,13 +9,13 @@ class AboutInterest extends React.Component {
     this.imageRef = null;
     this.timeline = gsap.timeline({ 
       paused: true, 
-      onComplete: this.interestAnimationComplete, 
-      onReverseComplete: this.interestAnimationReverseComplete, 
+      onComplete: this.animationForwardsComplete, 
+      onReverseComplete: this.animationReverseComplete, 
     });
   }
 
   componentDidMount = () => {
-    // this.getViewportSize();
+    // this.getImageSize();
     this.interestAnimation();
     this.timeline.play();
 
@@ -29,7 +29,7 @@ class AboutInterest extends React.Component {
   /**
    * Media query viewport and return image values
    */
-  getViewportSize = () => {
+  getImageSize = () => {
 
     // Media queries
     const mq1 = window.matchMedia('screen and (min-width: 576px) and (max-width: 1199px)');
@@ -64,36 +64,39 @@ class AboutInterest extends React.Component {
     }
   }
 
+  /**
+   * Interest animation (forwards)
+   */
   interestAnimation = () => {
     // Store image animation values
-    const imageAnimation = this.getViewportSize();
+    const image = this.getImageSize();
 
     gsap.set(this.interestRef, { autoAlpha: 0, });
     gsap.set(this.imageRef, { clipPath: 'circle(0% at 50% 50%)'});
 
-    if (this.props.interest === 'climbing') {
+    if (this.props.interest.name === 'climbing') {
       this.timeline.to('.hero .hero__content', { 
-        z: 500, 
+        z: 400, 
         duration: 1, 
         ease: 'power2.out',
       });
     }
 
-    if (this.props.interest === 'skiing') {
+    if (this.props.interest.name === 'skiing') {
       this.timeline.to('.hero .hero__content', { 
         x: '-43%',
         y: '4%',
-        z: 500, 
+        z: 400, 
         duration: 1, 
         ease: 'power2.out',
       });
     }
 
-    if (this.props.interest === 'surfing') {
+    if (this.props.interest.name === 'surfing') {
       this.timeline.to('.hero .hero__content', { 
         x: '-55%',
         y: '-28%',
-        z: 500, 
+        z: 400, 
         duration: 1, 
         ease: 'power2.out',
       });
@@ -121,9 +124,9 @@ class AboutInterest extends React.Component {
 
       // Move clip-path & resize .background-container
       .to(this.imageRef, {
-        width: imageAnimation.width,
-        height: imageAnimation.width,
-        translateX: imageAnimation.translateX,
+        width: image.width,
+        height: image.width,
+        translateX: image.translateX,
         duration: 0.5,
       })
 
@@ -145,10 +148,10 @@ class AboutInterest extends React.Component {
       })
 
       // Highlight title
-      .set('.interest__title', { className: 'interest__title show-highlight'})
+      .set('.interest__title', { className: 'interest__title animate show-highlight'})
 
       // Animate interest button
-      .fromTo('.interest button', {
+      .fromTo('.interest-btn.close', {
         opacity: 0,
         x: 10,
       }, {
@@ -159,45 +162,101 @@ class AboutInterest extends React.Component {
       });
   }
 
+  /**
+   * Handle close interest button
+   */
   handleClick = () => {
     // this.timeline.reverse();
-    this.reverseAnimation();
+    this.reverseInterestAnimation();
   }
 
-  interestAnimationComplete = () => {
+  /**
+   * Animaton forwards complete callback
+   * Unmounts component via parent
+   */
+  animationForwardsComplete = () => {
     // console.log('Animation has finished');
   }
 
-  interestAnimationReverseComplete = () => {
+  /**
+   * Animation reverse complete callback
+   * Unmounts component via parent
+   */
+  animationReverseComplete = () => {
     // console.log('Animation has finished in reverse');
-
-    this.props.unmountComponent(this.props.interest);
+    this.props.unmountComponent(this.props.interest.name);
   }
 
-  // Window resize
+  /**
+   * Handle window resize
+   */
   handleResize = () => {
     // console.log('Window width:', window.innerWidth);
     // console.log('Window height:', window.innerHeight);
 
     // Store image animation values
-    const imageAnimation = this.getViewportSize();
+    const image = this.getImageSize();
 
     gsap.set(this.imageRef, {
-      width: imageAnimation.width,
-      height: imageAnimation.width,
-      translateX: imageAnimation.translateX,
+      width: image.width,
+      height: image.width,
+      translateX: image.translateX,
     });
   }
 
-  // Manual reverse option to overcome resize issue when interest is open
-  reverseAnimation = () => {
+  /**
+   * Reverse animation
+   * Manual reverse option to overcome resize issue when interest is open
+   */
+  reverseInterestAnimation = () => {
     const reverseTL = gsap.timeline({
-      onComplete: this.interestAnimationReverseComplete
+      onComplete: this.animationReverseComplete
     });
 
     reverseTL
-      .to(this.imageRef, { clipPath: 'circle(0% at 50% 50%)', duration: 1 })
-      .to(this.interestRef, { autoAlpha: 0, duration: 0.001 })
+      // Animate interest content
+      .fromTo('.interest .animate', {
+        y: 0,
+        autoAlpha: 1,
+      }, {
+        y: 50,
+        autoAlpha: 0,
+        duration: 0.5,
+        stagger: 0.2,
+      })
+
+      // Highlight title
+      .set('.interest__title', { className: 'interest__title animate'})
+
+      // Animate interest button
+      .fromTo('.interest-btn.close', {
+        opacity: 1,
+        x: 0,
+      }, {
+        x: 10,
+        opacity: 0,
+        duration: 0.250,
+        ease: "power4.in",
+      })
+
+      // Resize image
+      .to(this.imageRef, {
+        x: 0,
+        y: 0,
+        width: '100vw',
+        height: '100vw',
+        opacity: 1,
+        filter: 'grayscale(0)',
+        duration: 0.5,
+      })
+
+      // Release clipping
+      .to(this.imageRef, { clipPath: 'circle(100% at 50% 50%)', duration: 0.250 })
+
+      // Zoom into image
+      .to(this.imageRef, { z: 400, duration: 0.5 }, "-=0.250")
+
+      // .to(this.imageRef, { clipPath: 'circle(0% at 50% 50%)', duration: 1 })
       .to('.hero .hero__content', { 
         x: 0,
         y: 0,
@@ -205,33 +264,33 @@ class AboutInterest extends React.Component {
         duration: 1, 
         ease: 'power2.out',
       });
-
   }
   
   render() {
 
     if (this.props.showInterest) {
 
-      let imagePath = `/assets/interest-bg-${this.props.interest}.jpg`;
+      let imagePath = `/assets/interest-bg-${this.props.interest.name}.jpg`;
 
       return(
         <section 
-          id={this.props.interest} 
-          className={`interest--${this.props.interest}  interest`}
+          id={this.props.interest.name} 
+          className={`interest--${this.props.interest.name}  interest`}
           ref={section => this.interestRef = section}
         >
           <div className="background-container" ref={div => this.imageRef = div}>
             <img 
               className="background" 
               src={process.env.PUBLIC_URL + imagePath}
-              alt={this.props.interest}
+              alt={this.props.interest.name}
             />
           </div>
   
           <div className="interest__content">
             <div className="interest__title  animate">
+              {this.props.interest.svgTitle}
             </div>
-            <p className="animate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            {/* <p className="animate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
             <button className="close interest-btn" onClick={this.handleClick}>
               <ArrowLeft />
             </button>
