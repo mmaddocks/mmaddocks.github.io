@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { play, exit } from './timelines'
 import Home from './components/home/Home';
@@ -30,15 +30,14 @@ class App extends React.Component {
                   <Route path="/about" exact component={About} />
                   <Route path="/resume" exact component={() => { 
                       window.location.href = 'https://mmaddocks.com/resume'; 
-                      // window.location.href = 'http://localhost:3000/resume'; 
                       return null;
                   }}/>
 
-                  {/* <Route path="/resume" exact>
-                    <Redirect to="https://mmaddocks.com/resume" />
-                  </Route> */}
-                  
-                  {/* <Route path={`${process.env.PUBLIC_URL}/resume`} exact /> */}
+                  {/* <Route path="/resume" component={() => { 
+                      window.location = 'http://localhost:3000/resume'; 
+                      return null;
+                  }}/> */}
+
                 </Switch>
               </Transition>
             </TransitionGroup>
