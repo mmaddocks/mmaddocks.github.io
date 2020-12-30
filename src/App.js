@@ -30,6 +30,7 @@ class App extends React.Component {
                   <Route path="/about" exact component={About} />
                   <Route path="/resume" exact component={() => { 
                       window.location.href = 'https://mmaddocks.com/resume'; 
+                      // window.location.href = 'http://localhost:3000/resume'; 
                       return null;
                   }}/>
 
