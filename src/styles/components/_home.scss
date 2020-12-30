@@ -35,12 +35,17 @@
       width: auto;
     }
 
+    /* ==============================
+     * Title 
+    ============================== */
     .welcome__title {
 
       h1 {
         margin: 0;
         font-size: 3.75em;
-        font-weight: 700;
+        // font-weight: 700;
+        // letter-spacing: -0.05em;
+        font-weight: 800;
         letter-spacing: -0.022em;
         color: $font-colour;
 
@@ -56,9 +61,13 @@
             position: absolute;
             left: 0;
             z-index: -1;
-            bottom: 15px;
+            bottom: 8px;
             background-image: linear-gradient(45deg, $gradient-blue, $gradient-green);
             transition: width 1s ease;
+
+            @include media-breakpoint(lg) {
+              bottom: 15px;
+            }
           }
         }
 
@@ -82,6 +91,9 @@
       }
     }
 
+    /* ==============================
+     * Intro 
+    ============================== */
     .welcome__intro {
       width: 100%;
       display: flex;
@@ -89,6 +101,7 @@
       margin-left: auto;
       position: relative;
       font-size: 1.25em;
+      line-height: 1.5;
 
       &::before {
         content: "";
@@ -105,12 +118,16 @@
 
     .welcome__link {
       display: flex;
-      align-items: center;
       justify-content: flex-end;
       margin-top: 1em;
-      font-size: 0.875em;
-      text-transform: uppercase;
-      letter-spacing: 0.044em;
+
+      a {
+        display: flex;
+        align-items: center;
+        font-size: 0.875em;
+        text-transform: uppercase;
+        letter-spacing: 0.044em;
+      }
 
       svg {
         margin-left: 0.5em;
@@ -147,7 +164,7 @@
   }
 
   .logo {
-    width: 50%;
+    width: 45%;
     height: 100%;
     position: absolute;
     right: 0;
@@ -157,6 +174,14 @@
 
     @include media-breakpoint(md) {
       display: block;
+    }
+
+    .colour-stop-1 {
+      color: $gradient-blue;
+    }
+
+    .colour-stop-2 {
+      color: $gradient-green;
     }
   }
 }

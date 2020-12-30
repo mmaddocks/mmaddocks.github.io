@@ -16,18 +16,40 @@
 
     &.climbing {
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 30%;
+      transform: translateY(-50%);
+
+      @include media-breakpoint(sm) {
+        left: 50%;
+      }
     }
 
     &.skiing {
-      top: 45vh;
-      right: 15%;
+      top: 47vh;
+      right: 31%;
+
+      @include media-breakpoint(sm) {
+        right: 15%;
+      }
+
+      @include media-breakpoint(lg) {
+        top: 60vh;
+      }
+
+      // Max aspect ratio (4:3 and below - phones)
+      @media (max-aspect-ratio: 4/3) {
+        top: 50vh;
+      }
     }
 
     &.surfing {
       bottom: 25%;
       right: 75px;
+
+      @include media-breakpoint(md) {
+        bottom: 15vh;
+        right: 15%;
+      }
     }
 
     &.skiing,
@@ -43,8 +65,8 @@
     }
 
     svg {
-      width: 15px;
-      height: 15px;
+      width: 24px;
+      height: 24px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -75,13 +97,10 @@
       line-height: 1;
       border-radius: 20px;
       background-color: #fff;
-      // opacity: 0; /* animate this */
-      // width: 0; /* animate this */
 
       .text {
         padding: 0 15px 0 35px;
         color: $tooltip-text-colour;
-        // opacity: 0; /* animate this */
         text-transform: capitalize;
       }
     }

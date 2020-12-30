@@ -28,16 +28,10 @@ class App extends React.Component {
                 <Switch location={location}>
                   <Route path="/" exact component={Home}/>
                   <Route path="/about" exact component={About} />
-                  <Route path="/resume" exact component={() => { 
+                  {/* <Route path="/resume" exact component={() => { 
                       window.location.href = 'https://mmaddocks.com/resume'; 
                       return null;
-                  }}/>
-
-                  {/* <Route path="/resume" component={() => { 
-                      window.location = 'http://localhost:3000/resume'; 
-                      return null;
                   }}/> */}
-
                 </Switch>
               </Transition>
             </TransitionGroup>

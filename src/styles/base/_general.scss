@@ -2,11 +2,17 @@
  * Base styles
  */
 
-.app {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
+html, body, #root {
+  // mobile viewport bug fix (safari)
+  height: -webkit-fill-available;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 body {
@@ -19,13 +25,18 @@ body {
   color: $font-colour;
 }
 
+.app {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  // mobile viewport bug fix (safari)
+  min-height: -webkit-fill-available;
+}
+
 .page {
   width: 100%;
-  height: 100vh;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
-
+  height: 100%;
   position: absolute;
   left: 0; // needed for home page to centre
   right: 0; // needed for home page to centre

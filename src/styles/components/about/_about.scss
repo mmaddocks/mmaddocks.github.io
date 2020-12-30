@@ -28,17 +28,6 @@
       width: 100%;
       height: 100%;
       transform: translateZ(0);
-
-      // Blend edge?
-      &::after {
-        content: "";
-        width: 51vw;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        right: -46vw;
-        background: linear-gradient(to left, #fff 90%, transparent);
-      }
     }
 
     .background-image {
@@ -53,7 +42,7 @@
         object-fit: cover;
         object-position: right;
 
-        @include media-breakpoint(sm) {
+        @include media-breakpoint(md) {
           object-position: center 25%;
         }
 
@@ -73,7 +62,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        background: linear-gradient(to bottom, #fff, transparent);
+        background: linear-gradient(to bottom, #fff, $transparent);
       }
     }
 
@@ -81,38 +70,53 @@
      * About page: Title 
     ============================== */
     .title-container {
+      width: 90%; // for svg
       position: absolute;
-      margin-top: 50px;
-      right: 10px;
+      margin-top: 75px;
+      right: 5%;
 
-      @include media-breakpoint(sm) {
+      @include media-breakpoint(md) {
+        width: 58%; // for svg
+        max-width: 1000px; // for svg
+        right: 15%;
+        margin: 30px auto 0 auto;
+      }
+
+      svg {
         width: 100%;
-        max-width: 435px;
-        left: 0;
-        right: 0;
-        margin: 50px auto 0 auto;
+        height: 100%;
+
+        .colour-stop-1 {
+          color: rgba($sky-colour, 0.3);
+        }
+
+        .colour-stop-2 {
+          color: $transparent;
+        }
+
+        // "me" text
+        .text-me {
+          transform: translate(901px, 700px);
+
+          @include media-breakpoint(lg) {
+            transform: translate(901px, 680px);
+          }
+        }
       }
     }
 
+    // NOT BEING USED (TEXT BASED) 
     .title {
       margin: 0;
-      font-size: 7em;
+      // calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
+      font-size: calc(100px + (300 - 100) * ((100vw - 320px) / (1920 - 320)));
       text-align: right;
       line-height: 0.75;
       color: #fff;
       // text clip styles
       background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-image: linear-gradient(to bottom, #8ebfce, transparent);
-
-      @include media-breakpoint(sm) {
-        font-size: 10em;
-        text-align: initial;
-      }
-
-      @include media-breakpoint(md) {
-        max-width: 625px;
-      }
+      -webkit-text-fill-color: $transparent;
+      background-image: linear-gradient(to bottom, $sky-colour, $transparent 85%);
 
       &.title--me {
         @include media-breakpoint(sm) {

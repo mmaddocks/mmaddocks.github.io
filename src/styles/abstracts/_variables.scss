@@ -9,10 +9,13 @@ $highlight-colour: #2CCFE4; // highlight-colour;
 
 // GRADIENT COLOURS
 $gradient-blue: #54ECFF;
-$gradient-green: #49DAB9;
+// $gradient-green: #49DAB9;
+$gradient-green: #58ffd9; // more vibrant
 
 // OTHER COLOURS
 $tooltip-text-colour: #586069;
 $dark-grey: #3a3a3a;
+$transparent: rgba(255, 255, 255, 0); // Safari fix
+$sky-colour: #8ebfce;
 
 $font-colour: $primary-colour;

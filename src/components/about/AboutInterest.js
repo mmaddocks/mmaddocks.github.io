@@ -71,45 +71,37 @@ class AboutInterest extends React.Component {
     // Store image animation values
     const image = this.getImageSize();
 
-    gsap.set(this.interestRef, { autoAlpha: 0, });
     gsap.set(this.imageRef, { clipPath: 'circle(0% at 50% 50%)'});
 
     if (this.props.interest.name === 'climbing') {
       this.timeline.to('.hero .hero__content', { 
         z: 400, 
-        duration: 1, 
+        duration: 0.750, 
         ease: 'power2.out',
       });
     }
 
     if (this.props.interest.name === 'skiing') {
       this.timeline.to('.hero .hero__content', { 
-        x: '-43%',
-        y: '4%',
+        x: '-35%',
+        y: '-12%',
         z: 400, 
-        duration: 1, 
+        duration: 0.750, 
         ease: 'power2.out',
       });
     }
 
     if (this.props.interest.name === 'surfing') {
       this.timeline.to('.hero .hero__content', { 
-        x: '-55%',
-        y: '-28%',
+        x: '-35%',
+        y: '-32%',
         z: 400, 
-        duration: 1, 
+        duration: 0.750, 
         ease: 'power2.out',
       });
     }
 
     this.timeline
-      // Reveal interest
-      .to(this.interestRef, { 
-        display: 'flex',
-        autoAlpha: 1,
-        duration: 0.001,
-      })
-
       // Reveal interest bg
       .to(this.imageRef, { 
         clipPath: 'circle(100% at 50% 50%)',
@@ -152,11 +144,11 @@ class AboutInterest extends React.Component {
 
       // Animate interest button
       .fromTo('.interest-btn.close', {
-        opacity: 0,
+        autoAlpha: 0,
         x: 10,
       }, {
         x: 0,
-        opacity: 1,
+        autoAlpha: 1,
         duration: 0.5,
         ease: "power4.in",
       });
@@ -256,7 +248,6 @@ class AboutInterest extends React.Component {
       // Zoom into image
       .to(this.imageRef, { z: 400, duration: 0.5 }, "-=0.250")
 
-      // .to(this.imageRef, { clipPath: 'circle(0% at 50% 50%)', duration: 1 })
       .to('.hero .hero__content', { 
         x: 0,
         y: 0,
