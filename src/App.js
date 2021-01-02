@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Transition, TransitionGroup } from 'react-transition-group';
 import { play, exit } from './timelines'
 import Home from './components/home/Home';
@@ -12,7 +12,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
+      // <BrowserRouter>
         <Route render={({ location }) => {
           const { pathname, key } = location;
 
@@ -37,7 +37,7 @@ class App extends React.Component {
             </TransitionGroup>
           )
         }}/>
-      </BrowserRouter>
+      // </BrowserRouter>
     )
   }
 }
