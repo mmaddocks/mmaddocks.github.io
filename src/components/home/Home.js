@@ -52,7 +52,7 @@ class Home extends React.Component {
             </div>
 
             <div className="welcome__intro">
-              <p>A Front-end web developer and Product Designer.</p>
+              <p>A Frontend Web Developer and UX Designer.</p>
             </div>
             <div className="welcome__link">
               <Link to="/about">
