@@ -2,16 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { BrowserRouter as Router } from 'react-router-dom';
-// import { HashRouter } from 'react-router-dom';
-
-// GA
-import ReactGA from 'react-ga';
+import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+// Google Analytics
+import ReactGA from 'react-ga';
 
 // Google Analytics
-const TRACKING_ID = 'UA-83611733-2';
-ReactGA.initialize(TRACKING_ID);
+const trackingId = 'UA-83611733-2';
+ReactGA.initialize(trackingId);
 
 const history = createBrowserHistory();
 
@@ -19,15 +17,13 @@ const history = createBrowserHistory();
 history.listen(location => {
   ReactGA.set({ page: location.pathname }); // Update the user's current page
   ReactGA.pageview(location.pathname); // Record a pageview for the given page
+  // console.log('Location:', location.pathname);
 });
 
 ReactDOM.render(
   <Router history={history}>
     <App/>
   </Router>,
-  // <HashRouter>
-  //   <App/>
-  // </HashRouter>,
   document.getElementById('root')
 );
 

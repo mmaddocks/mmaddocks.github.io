@@ -83,7 +83,7 @@ class About extends React.Component {
     // setState is asynchronous
     // console.log will execute before state is updated
     this.setState({ selectedInterest: interest, }, () => { 
-      console.log('(About.js) selectedInterest:', this.state.selectedInterest);
+      // console.log('(About.js) selectedInterest:', this.state.selectedInterest);
     });
   }
 
