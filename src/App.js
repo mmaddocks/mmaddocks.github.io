@@ -4,9 +4,17 @@ import { Transition, TransitionGroup } from 'react-transition-group';
 import { play, exit } from './timelines'
 import Home from './components/home/Home';
 import About from './components/about/About';
+import ReactGA from 'react-ga';
 
 // UI
 import './styles/main.scss';
+
+// Route change tracker (Google Analytics)
+import './components/RouteChangeTracker';
+
+// Google Analytics
+const TRACKING_ID = 'UA-83611733-2';
+ReactGA.initialize(TRACKING_ID);
 
 class App extends React.Component {
 
