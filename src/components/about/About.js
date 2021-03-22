@@ -98,7 +98,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="about  page">
+      <div className="about-page  page">
 
         <section className="hero">
           <div className="hero__content">

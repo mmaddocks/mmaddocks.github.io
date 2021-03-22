@@ -16,7 +16,8 @@ class App extends React.Component {
         const { pathname, key } = location;
 
         return (
-          <TransitionGroup className="app">
+          // <TransitionGroup className="app">
+          <TransitionGroup component={null}>
             <Transition
               key={key}
               appear={true}
@@ -27,10 +28,6 @@ class App extends React.Component {
               <Switch location={location}>
                 <Route path="/" exact component={Home}/>
                 <Route path="/about" exact component={About} />
-                {/* <Route path="/resume" exact component={() => { 
-                    window.location.href = 'https://mmaddocks.com/resume'; 
-                    return null;
-                }}/> */}
               </Switch>
             </Transition>
           </TransitionGroup>

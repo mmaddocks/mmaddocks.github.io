@@ -4,4 +4,17 @@
 
 $body-font: "Inter Variable", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 
+// Bold headings
+$condensed-letter-spacing: -0.05em;
 
+// Thin heading or links
+$spaced-letter-spacing: 0.044em;
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: $condensed-letter-spacing;
+}
+
+p {
+  margin-top: 0;
+  line-height: 1.5;
+}

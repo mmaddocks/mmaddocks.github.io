@@ -1,0 +1,262 @@
+/**
+ * Home page styles
+ */
+
+.home-page {
+
+  /* ==============================
+   * Nav 
+  ============================== */
+  .links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    padding: $default-padding;
+    z-index: 1;
+
+    @include media-breakpoint(md) {
+      justify-content: flex-start;
+    }
+
+    .links__item {
+      margin: 0 1em;
+      font-size: 0.875em;
+      transition: all 500ms ease-in-out;
+      text-transform: uppercase;
+      letter-spacing: $spaced-letter-spacing;
+
+      &:hover {
+        color: $highlight-colour;
+      }
+
+      @include media-breakpoint(md) {
+        margin: 0 2em;
+      }
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+    }
+  }
+
+  /* ==============================
+   * Hero 
+  ============================== */
+  .hero {
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: 100vh;
+    // mobile viewport bug fix (safari)
+    // min-height: -webkit-fill-available;
+  }
+
+  a {
+    text-decoration: none;
+    color: $secondary-colour;
+    font-weight: 400;
+  }
+
+  .welcome {
+    @include media-breakpoint(sm) {
+      width: 75%;
+    }
+
+    @include media-breakpoint(md) {
+      width: 50%;
+    }
+
+    /* ==============================
+     * Title 
+    ============================== */
+    .welcome__title {
+
+      h1 {
+        margin: 0;
+        font-size: 3.75em;
+        font-weight: 800;
+        color: $font-colour;
+
+        strong {
+          position: relative;
+          padding: 0 15px;
+          font-weight: inherit;
+
+          @include highlight() {
+            width: 0;
+            bottom: 8px;
+            transition: width 1s ease;
+
+            @include media-breakpoint(lg) {
+              bottom: 15px;
+            }
+          };
+        }
+
+        @include media-breakpoint(md) {
+          font-size: 4.5em;
+        }
+
+        @include media-breakpoint(lg) {
+          // font-size: 6.25em;
+          font-size: 7.25em;
+        }
+      }
+
+      &.show-highlight {
+        h1 {
+          strong {
+            &::before {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+    /* ==============================
+     * Intro 
+    ============================== */
+    .welcome__intro {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      margin-top: 1em;
+      margin-left: auto;
+      position: relative;
+      font-size: 1.25em;
+      @include title-line();
+
+      @include media-breakpoint(lg) {
+        font-size: 1.5em;
+      }
+
+      p {
+        margin: 0;
+      }
+    }
+
+    .welcome__link {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 1em;
+
+      a {
+        display: flex;
+        align-items: center;
+        // font-size: 0.875em;
+        font-size: 1em;
+        text-transform: uppercase;
+        letter-spacing: $spaced-letter-spacing;
+      }
+
+      svg {
+        margin-left: 0.5em;
+      }
+
+      @include media-breakpoint(md) {
+        font-size: 1em;
+      }
+    }
+
+  }
+
+  .logo {
+    width: 45%;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    display: none;
+    // top: 50%;
+    // max-height: 1000px;
+    // transform: translateY(-50%);
+
+    @include media-breakpoint(md) {
+      display: block;
+    }
+
+    .colour-stop-1 {
+      color: $gradient-blue;
+    }
+
+    .colour-stop-2 {
+      color: $gradient-green;
+    }
+  }
+
+  /* ==============================
+   * Featured projects 
+  ============================== */
+  @include featured-projects();
+
+  .project {
+    display: flex;
+    padding: 100px 50px;
+
+    .project__content {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.25rem; // 20px
+    }
+
+    .project__title {
+      display: flex;
+      align-items: center;
+      position: relative;
+      margin-bottom: 1.5em;
+      
+      @include title-line('before', 200px, 2px, 1em) {
+        position: absolute;
+        right: 100%;
+      };
+
+      h3 {
+        margin: 0;
+        font-size: 3.2em;
+      }
+    }
+
+    .project__lead {
+      font-weight: 500;
+      color: $secondary-colour;
+    }
+
+    .project__link {
+      margin-top: auto;
+      align-self: flex-start;
+      position: relative;
+      padding: 0 0.25em;
+      font-weight: 700;
+      color: $primary-colour;
+      @include highlight();
+    }
+
+    .project__image {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+
+      img {
+        width: auto;
+        // height: 600px;
+        height: 75vh;
+      }
+    }
+
+    &[data-position="right"] {
+      .project__title {
+        &::before {
+          left: 100%;
+        }
+      }
+    }
+  }
+
+
+}
