@@ -1,9 +1,8 @@
 /* ==============================
-  * Featured projects 
+  * FEATURED PROJECTS
   * Mixin is included in _home.scss
 ============================== */
 @mixin featured-projects() {
-
   .featured-projects {
     display: flex;
     align-items: center;
@@ -21,13 +20,11 @@
         .colour-stop-1 {
           color: $gradient-blue;
         }
-    
+
         .colour-stop-2 {
           color: $gradient-green;
         }
-
       }
-
     }
 
     .content {
@@ -38,7 +35,8 @@
     .content__title {
       font-size: 2rem; // 32px
 
-      h2, h3 {
+      h2,
+      h3 {
         margin: 0;
         line-height: 1;
         text-transform: uppercase;
@@ -69,6 +67,5 @@
         margin: 0;
       }
     }
-
   }
 }

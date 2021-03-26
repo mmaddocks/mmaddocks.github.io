@@ -1,47 +1,8 @@
-/**
- * Home page styles
- */
+// HOME PAGE STYLES
 
 .home-page {
-
-  /* ==============================
-   * Nav 
-  ============================== */
-  .links {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    left: 0;
-    padding: $default-padding;
-    z-index: 1;
-
-    @include media-breakpoint(md) {
-      justify-content: flex-start;
-    }
-
-    .links__item {
-      margin: 0 1em;
-      font-size: 0.875em;
-      transition: all 500ms ease-in-out;
-      text-transform: uppercase;
-      letter-spacing: $spaced-letter-spacing;
-
-      &:hover {
-        color: $highlight-colour;
-      }
-
-      @include media-breakpoint(md) {
-        margin: 0 2em;
-      }
-
-      &:first-of-type {
-        margin-left: 0;
-      }
-    }
-  }
-
+  top: 0;
+  
   /* ==============================
    * Hero 
   ============================== */
@@ -52,12 +13,6 @@
     min-height: 100vh;
     // mobile viewport bug fix (safari)
     // min-height: -webkit-fill-available;
-  }
-
-  a {
-    text-decoration: none;
-    color: $secondary-colour;
-    font-weight: 400;
   }
 
   .welcome {
@@ -144,13 +99,17 @@
       justify-content: flex-end;
       margin-top: 1em;
 
-      a {
+      button {
         display: flex;
         align-items: center;
         // font-size: 0.875em;
         font-size: 1em;
         text-transform: uppercase;
         letter-spacing: $spaced-letter-spacing;
+        background: transparent;
+        border: initial;
+        cursor: pointer;
+        color: $secondary-colour;
       }
 
       svg {
@@ -194,69 +153,9 @@
   ============================== */
   @include featured-projects();
 
-  .project {
-    display: flex;
-    padding: 100px 50px;
-
-    .project__content {
-      width: 50%;
-      display: flex;
-      flex-direction: column;
-      font-size: 1.25rem; // 20px
-    }
-
-    .project__title {
-      display: flex;
-      align-items: center;
-      position: relative;
-      margin-bottom: 1.5em;
-      
-      @include title-line('before', 200px, 2px, 1em) {
-        position: absolute;
-        right: 100%;
-      };
-
-      h3 {
-        margin: 0;
-        font-size: 3.2em;
-      }
-    }
-
-    .project__lead {
-      font-weight: 500;
-      color: $secondary-colour;
-    }
-
-    .project__link {
-      margin-top: auto;
-      align-self: flex-start;
-      position: relative;
-      padding: 0 0.25em;
-      font-weight: 700;
-      color: $primary-colour;
-      @include highlight();
-    }
-
-    .project__image {
-      width: 50%;
-      display: flex;
-      justify-content: center;
-
-      img {
-        width: auto;
-        // height: 600px;
-        height: 75vh;
-      }
-    }
-
-    &[data-position="right"] {
-      .project__title {
-        &::before {
-          left: 100%;
-        }
-      }
-    }
-  }
-
+  /* ==============================
+   * Projects 
+  ============================== */
+  @include home-projects();
 
 }
