@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ArrowRight } from "react-feather";
 import communicatorPng from "../../assets/projects/communicator-app.png";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
+import Footer from "../Footer";
 
 import HomeProject from "./HomeProject";
 
@@ -235,6 +236,7 @@ class Home extends React.Component {
             return <HomeProject key={index} index={index} project={project} />;
           })}
         </div>
+        <Footer />
       </div>
     );
   }

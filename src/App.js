@@ -6,6 +6,7 @@ import Home from "./components/home/Home";
 import About from "./components/about/About";
 import Project from "./components/project/Project";
 import Navigation from "./components/Navigation";
+// import Footer from "./components/Footer";
 
 // UI
 import "./styles/main.scss";
@@ -20,6 +21,7 @@ class App extends React.Component {
             const { pathname, key } = location;
             return (
               <TransitionGroup component={null}>
+              {/* <TransitionGroup className="page-wrapper"> */}
                 <Transition
                   key={key}
                   appear={true}
@@ -43,6 +45,7 @@ class App extends React.Component {
             );
           }}
         />
+        
       </>
     );
   }

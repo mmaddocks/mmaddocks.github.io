@@ -1,7 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { gsap } from 'gsap/all';
-import { Home } from 'react-feather';
 
 // Components
 import AboutButton from './AboutButton';
@@ -145,8 +143,6 @@ class About extends React.Component {
                 />
               );
             })}
-    
-            <Link className="home-btn" to="/"><Home /></Link>
         
           </div>
         </section>
