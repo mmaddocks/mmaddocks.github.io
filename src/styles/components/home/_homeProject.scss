@@ -5,13 +5,27 @@
 @mixin home-projects() {
   .project {
     display: flex;
-    padding: 100px 50px;
+    padding: 50px 0;
+    flex-direction: column-reverse;
+
+    @include media-breakpoint(md) {
+      flex-direction: row;
+      padding: 100px 0;
+    }
 
     .project__content {
-      width: 50%;
+      width: 100%;
       display: flex;
       flex-direction: column;
-      font-size: 1.25rem; // 20px
+      margin-top: 2rem;
+      font-size: 1rem;
+
+      @include media-breakpoint(md) {
+        width: 50%;
+        margin-top: 0;
+        padding-right: 40px;
+        font-size: 1.25rem; // 20px
+      }
     }
 
     .project__title {
@@ -19,15 +33,21 @@
       align-items: center;
       position: relative;
       margin-bottom: 1.5em;
-      
-      @include title-line('before', 200px, 2px, 1em) {
-        position: absolute;
-        right: 100%;
-      };
+
+      @include media-breakpoint(md) {
+        @include title-line("before", 100%, 2px, 1em) {
+          position: absolute;
+          right: 100%;
+        }
+      }
 
       h3 {
         margin: 0;
-        font-size: 3.2em;
+        font-size: 2.5em;
+
+        @include media-breakpoint(lg) {
+          font-size: 3.2em;
+        }
       }
     }
 
@@ -48,22 +68,86 @@
     }
 
     .project__image {
-      width: 50%;
+      width: 100%;
       display: flex;
       justify-content: center;
+      border-radius: 20px;
+      padding: 40px;
+
+      @include media-breakpoint(md) {
+        width: 50%;
+      }
 
       img {
         width: auto;
-        // height: 600px;
-        height: 75vh;
+        height: 50vh;
+        // filter: drop-shadow(0px 0px 30px rgba(0,0,0,0.25));
+
+        @include media-breakpoint(md) {
+          height: 65vh;
+        }
       }
     }
 
+    /* ==============================
+     * Right aligned project 
+    ============================== */
     &[data-placement="right"] {
+      flex-direction: column;
+
+      @include media-breakpoint(md) {
+        flex-direction: row;
+      }
+
+      .project__content {
+        @include media-breakpoint(md) {
+          padding-right: 0;
+          padding-left: 40px;
+        }
+      }
+
       .project__title {
         &::before {
           left: 100%;
         }
+      }
+    }
+
+    /* ==============================
+     * Communicator
+    ============================== */
+    &.communicator,
+    &.web-app {
+      .project__image {
+        background: linear-gradient(
+          58.22deg,
+          rgba(#375b7b, 0.3),
+          rgba(#665f9c, 0.3),
+          rgba(#b1539a, 0.3),
+          rgba(#ea476f, 0.3),
+          rgba(#f86624, 0.3)
+        );
+      }
+    }
+
+    /* ==============================
+     * Communicator
+    ============================== */
+    &.energy-app {
+      .project__image {
+        // ** REAL COLOURS **
+        // background: linear-gradient(
+        //   45deg,
+        //   rgba(#00bcfd, 0.3),
+        //   rgba(#23d2b5, 0.3),
+        // );
+
+        // Tweaked colours (not real)
+        background: linear-gradient(
+          45deg,
+          rgba(#14c4ff, 0.3),
+          rgba(#2ce6c7, 0.3),
+        );
       }
     }
   }

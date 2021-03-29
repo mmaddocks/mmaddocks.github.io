@@ -2,6 +2,7 @@ import React from 'react';
 import { gsap } from 'gsap/all';
 
 // Components
+import Page from "../Page";
 import AboutButton from './AboutButton';
 import AboutInterest from './AboutInterest';
 
@@ -96,7 +97,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <div className="about-page  page">
+      <Page pageName="about-page">
 
         <section className="hero">
           <div className="hero__content">
@@ -155,7 +156,7 @@ class About extends React.Component {
           />
         }
 
-      </div>
+      </Page>
     );
   }
 

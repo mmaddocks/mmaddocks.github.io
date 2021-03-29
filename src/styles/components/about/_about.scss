@@ -7,12 +7,6 @@
   min-height: 100vh;
   overflow: hidden;
 
-  a {
-    position: absolute;
-    top: 25px;
-    left: 25px;
-    color: #fff;
-  }
 
   .hero {
     width: 100%;
@@ -105,26 +99,6 @@
       }
     }
 
-    // NOT BEING USED (TEXT BASED) 
-    .title {
-      margin: 0;
-      // calc([minimum size] + ([maximum size] - [minimum size]) * ((100vw - [minimum viewport width]) / ([maximum viewport width] - [minimum viewport width])));
-      font-size: calc(100px + (300 - 100) * ((100vw - 320px) / (1920 - 320)));
-      text-align: right;
-      line-height: 0.75;
-      color: #fff;
-      // text clip styles
-      background-clip: text;
-      -webkit-text-fill-color: $transparent;
-      background-image: linear-gradient(to bottom, $sky-colour, $transparent 85%);
-
-      &.title--me {
-        @include media-breakpoint(sm) {
-          text-align: right;
-        } 
-      }
-    }
-
   } 
   
   /* ==============================
@@ -133,6 +107,11 @@
   .interest-btn {
     cursor: pointer;
     transition: all 500ms ease;
+  }
+
+  // Main footer component
+  .footer {
+    margin-top: 1rem;
   }
 
 }

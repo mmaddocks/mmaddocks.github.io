@@ -8,13 +8,14 @@ const HomeProject = (props) => {
     projectLead,
     projectDesc,
     placement,
+    url,
   } = props.project;
 
-  const url = projectName.replace(/\s+/g, '-').toLowerCase();
+  // const url = projectName.replace(/\s+/g, '-').toLowerCase();
 
   if (placement === "right") {
     return (
-      <section className="project" data-placement={placement}>
+      <section className={`${url} project`} data-placement={placement}>
         <div className="project__image">
           <img src={projectImage} alt="" />
         </div>
@@ -33,7 +34,7 @@ const HomeProject = (props) => {
     );
   } else {
     return (
-      <section className="project" data-placement={placement}>
+      <section className={`${url} project`} data-placement={placement}>
         <div className="project__content">
           <div className="project__title">
             <h3>{projectName}</h3>

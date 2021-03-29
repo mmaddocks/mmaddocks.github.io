@@ -1,9 +1,9 @@
 import React from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "react-feather";
+import Page from "../Page";
 import communicatorPng from "../../assets/projects/communicator-app.png";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
-import Footer from "../Footer";
 
 import HomeProject from "./HomeProject";
 
@@ -15,8 +15,9 @@ class Home extends React.Component {
       projects: [
         {
           projectName: "Communicator",
+          url: "communicator",
           projectLead:
-            "Internal corporate communications mobile app to keep all employees connected.",
+            "Internal communications mobile app to keep all employees connected.",
           projectDesc:
             "Communicator is a ‘white label’ mobile app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
           projectImage: communicatorPng,
@@ -24,17 +25,19 @@ class Home extends React.Component {
         },
         {
           projectName: "Energy App",
+          url: "energy-app",
           projectLead:
-            "Internal corporate communications mobile app to keep all employees connected.",
+            "Communications mobile app for a client in the energy industry.",
           projectDesc:
-            "Communicator is a ‘white label’ mobile app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
+            "Due to project confidentiality, I am limited by what I can show and the company branding / content has been substituted",
           projectImage: communicatorPng,
           placement: "right",
         },
         {
           projectName: "Web App",
+          url: "web-app",
           projectLead:
-            "Internal corporate communications mobile app to keep all employees connected.",
+          "Internal communications web app to keep all employees connected.",
           projectDesc:
             "Communicator is a ‘white label’ mobile app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
           projectImage: communicatorPng,
@@ -54,7 +57,7 @@ class Home extends React.Component {
     gsap.set(".home-page .welcome h1", { opacity: 0, translateY: "100px" });
     gsap.set(".home-page .welcome__intro", { opacity: 0, translateX: "-50px" });
     gsap.set(".home-page .welcome__link", { opacity: 0, translateX: "-50px" });
-    gsap.set(".home-page .links", { opacity: 0, translateY: "10px" });
+    // gsap.set(".home-page .links", { opacity: 0, translateY: "10px" });
 
     // Init timeline
     this.homePageTimeline();
@@ -90,11 +93,11 @@ class Home extends React.Component {
       delay: 0.5,
     });
     // Links
-    timeline.to(".home-page .links", {
-      translateY: 0,
-      opacity: 1,
-      duration: 0.5,
-    });
+    // timeline.to(".home-page .links", {
+    //   translateY: 0,
+    //   opacity: 1,
+    //   duration: 0.5,
+    // });
 
     return timeline;
   };
@@ -105,7 +108,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div className="home-page  page">
+      <Page pageName="home-page">
         <div className="container">
           <section className="hero">
             <div className="welcome">
@@ -236,8 +239,7 @@ class Home extends React.Component {
             return <HomeProject key={index} index={index} project={project} />;
           })}
         </div>
-        <Footer />
-      </div>
+      </Page>
     );
   }
 }

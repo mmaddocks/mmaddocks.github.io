@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouteMatch } from "react-router-dom";
+import Page from "../Page";
 
 const Project = (props) => {
 
@@ -28,21 +29,21 @@ const Project = (props) => {
 
   if (item.id === 'communicator') {
     return (
-      <div className="project-page  page">
+      <Page pageName="project-page">
         <div className="container">
           <h1>Project case study</h1>
           <h1>{item.projectName}</h1>
         </div>
-      </div>
+      </Page>
     );
   } else {
     return (
-      <div className="project-page  page">
+      <Page pageName="project-page">
         <div className="container">
           <h1>Project</h1>
           <h1>{item.projectName}</h1>
         </div>
-      </div>
+      </Page>
     );
   }
 };
