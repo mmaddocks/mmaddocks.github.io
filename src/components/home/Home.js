@@ -4,6 +4,8 @@ import { ArrowRight } from "react-feather";
 import Page from "../Page";
 import communicatorPng from "../../assets/projects/communicator-app.png";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
+import energyApp from "../../assets/projects/energy-app.png";
+import webApp from "../../assets/projects/web-app.png"
 
 import HomeProject from "./HomeProject";
 
@@ -29,8 +31,8 @@ class Home extends React.Component {
           projectLead:
             "Communications mobile app for a client in the energy industry.",
           projectDesc:
-            "Due to project confidentiality, I am limited by what I can show and the company branding / content has been substituted",
-          projectImage: communicatorPng,
+            "Due to project confidentiality, I am limited by what I can show and the company branding / content has been substituted.",
+          projectImage: energyApp,
           placement: "right",
         },
         {
@@ -39,8 +41,8 @@ class Home extends React.Component {
           projectLead:
           "Internal communications web app to keep all employees connected.",
           projectDesc:
-            "Communicator is a ‘white label’ mobile app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
-          projectImage: communicatorPng,
+            "Communicator is a ‘white label’ web app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
+          projectImage: webApp,
           placement: "left",
         },
       ],
