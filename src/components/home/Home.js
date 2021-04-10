@@ -41,7 +41,7 @@ class Home extends React.Component {
           projectLead:
           "Internal communications web app to keep all employees connected.",
           projectDesc:
-            "Communicator is a ‘white label’ web app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
+            "Designed and built a ‘white label’ internal corporate communications web app (the sibling to Communicator).",
           projectImage: webApp,
           placement: "left",
         },

@@ -149,6 +149,12 @@
           rgba(#2ce6c7, 0.3),
         );
       }
+
+      .project__link {
+        opacity: 0.2;
+        pointer-events: none;
+        cursor: not-allowed;
+      }
     }
 
     /* ==============================
@@ -162,6 +168,12 @@
           width: 100%;
           height: auto;
         }
+      }
+
+      .project__link {
+        opacity: 0.2;
+        pointer-events: none;
+        cursor: not-allowed;
       }
     }
 

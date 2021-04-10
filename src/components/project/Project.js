@@ -1,6 +1,7 @@
-import React from "react";
+// import React from "react";
 import { useRouteMatch } from "react-router-dom";
 import Page from "../Page";
+import communicatorPng from "../../assets/projects/communicator-app.png";
 
 const Project = (props) => {
 
@@ -22,18 +23,29 @@ const Project = (props) => {
   const routeMatch = useRouteMatch();
   const route = routeMatch.params.project;
   const item = data.find(({ id }) => id === route);
-  // console.log("(3) Item:", item);
-
   // const result = data.filter(item => item.id === route);
   // console.log("(4) Result:", result[0].projectName);
 
-  if (item.id === 'communicator') {
+  if (item.id === "communicator") {
     return (
       <Page pageName="project-page">
         <div className="container">
-          <h1>Project case study</h1>
-          <h1>{item.projectName}</h1>
+          <section className="hero">
+            <div className="hero__text">
+              <h3>Project</h3>
+              <h1>{item.projectName}</h1>
+              <div className="hero__intro">
+                <p>Internal corporate communications & employee engagment mobile app to keep all staff connected.</p>
+              </div>
+            </div>
+            <div className="hero__image">
+              <img src={communicatorPng} alt="" />
+            </div>
+          </section>
         </div>
+        <section className="overview">
+
+        </section>
       </Page>
     );
   } else {

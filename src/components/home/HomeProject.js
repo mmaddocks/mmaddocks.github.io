@@ -11,8 +11,6 @@ const HomeProject = (props) => {
     url,
   } = props.project;
 
-  // const url = projectName.replace(/\s+/g, '-').toLowerCase();
-
   if (placement === "right") {
     return (
       <section className={`${url} project`} data-placement={placement}>

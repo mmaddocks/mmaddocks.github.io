@@ -4,6 +4,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import ScrollToTop from './components/ScrollToTop';
+
 // Google Analytics
 import ReactGA from 'react-ga';
 
@@ -22,6 +24,7 @@ history.listen(location => {
 
 ReactDOM.render(
   <Router history={history}>
+    <ScrollToTop/>
     <App/>
   </Router>,
   document.getElementById('root')

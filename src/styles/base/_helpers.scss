@@ -38,10 +38,12 @@ body {
 }
 
 .page {
-  position: absolute; // needed for animation
-  top: 0;
-  left: 0; // needed for animation between page
-  right: 0; // needed for animation between page
+  // @NOTE: position: absolute prevents scroll to top on route change
+
+  // position: absolute; // needed for animation
+  // top: 0;
+  // left: 0; // needed for animation between page
+  // right: 0; // needed for animation between page
 
   a {
     position: relative;
@@ -51,7 +53,7 @@ body {
 /**
  * Main content containers
  */
- .container {
+.container {
   width: 100%;
   max-width: $container-max-width; 
   margin-left: auto; 

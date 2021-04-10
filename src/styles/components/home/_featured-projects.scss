@@ -10,8 +10,8 @@
     padding: 50px 0;
 
     @include media-breakpoint(md) {
-      min-height: 100vh;
       padding: 0;
+      margin: 100px 0;
     }
 
     .logo-brace {
