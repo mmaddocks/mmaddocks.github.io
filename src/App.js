@@ -7,6 +7,8 @@ import About from "./components/about/About";
 import Project from "./components/project/Project";
 import Navigation from "./components/Navigation";
 
+// This is a test to force a gh pages update
+
 // UI
 import "./styles/main.scss";
 
