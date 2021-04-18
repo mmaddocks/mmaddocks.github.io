@@ -6,8 +6,11 @@ import communicatorPng from "../../assets/projects/communicator-app.png";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
 import energyApp from "../../assets/projects/energy-app.png";
 import webApp from "../../assets/projects/web-app.png"
-
 import HomeProject from "./HomeProject";
+
+// Scroll Animation
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 class Home extends React.Component {
   constructor(props) {
@@ -52,6 +55,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.stageHomePage();
+    AOS.init();
   }
 
   stageHomePage = () => {
@@ -185,7 +189,7 @@ class Home extends React.Component {
             </div>
           </section>
 
-          <section ref={this.featuredProjectsRef} id="featured-projects" className="featured-projects">
+          <section ref={this.featuredProjectsRef} id="featured-projects" className="featured-projects" data-aos="fade-up" data-aos-anchor-placement="top-center">
             <div className="logo-brace">
               <svg
                 width="100%"

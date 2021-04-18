@@ -14,18 +14,22 @@
     align-items: center;
     justify-content: space-between;
 
-    @include media-breakpoint(sm) {
+    @include media-breakpoint(md) {
       flex-direction: row;
     }
     
+    .social, 
+    .created {
+      margin-bottom: 1rem;
+
+      @include media-breakpoint(md) {
+        margin-bottom: 0;
+      }
+    }
+
     .social {
       display: flex;
       align-items: center;
-      margin-bottom: 1rem;
-
-      @include media-breakpoint(sm) {
-        margin-bottom: 0;
-      }
   
       .social__item {
         display: block;

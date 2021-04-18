@@ -13,7 +13,11 @@ const HomeProject = (props) => {
 
   if (placement === "right") {
     return (
-      <section className={`${url} project`} data-placement={placement}>
+      <section
+        className={`${url} project`}
+        data-placement={placement}
+        data-aos="fade-up"
+      >
         <div className="project__image">
           <img src={projectImage} alt="" />
         </div>
@@ -32,7 +36,11 @@ const HomeProject = (props) => {
     );
   } else {
     return (
-      <section className={`${url} project`} data-placement={placement}>
+      <section
+        className={`${url} project`}
+        data-placement={placement}
+        data-aos="fade-up"
+      >
         <div className="project__content">
           <div className="project__title">
             <h3>{projectName}</h3>

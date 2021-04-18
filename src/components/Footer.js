@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedinIn, faFigma, faReact } from "@fortawesome/free-brands-svg-icons";
 import { Mail } from "react-feather";
 
 const Footer = (props) => {
@@ -33,19 +33,27 @@ const Footer = (props) => {
             >
               <FontAwesomeIcon icon={faLinkedinIn} />
             </a>
+
           </div>
+          <div className="created">
+              <p>Designed in <FontAwesomeIcon icon={faFigma} /></p>
+              <span className="seperator">|</span>
+              <p>Built in <FontAwesomeIcon icon={faReact} /></p>
+            </div>
           <div className="meta">
+
+            {/* <div className="created">
+              <p>Designed in <FontAwesomeIcon icon={faFigma} /></p>
+              <span className="seperator">|</span>
+              <p>Built in <FontAwesomeIcon icon={faReact} /></p>
+            </div> */}
+
             <div className="copyright">
               <p>
                 <small>&copy; Mark Maddocks</small>
               </p>
             </div>
 
-            {/* <div className="created">
-              <p>Designed in Figma</p>
-              <span className="seperator">|</span>
-              <p>Built in React</p>
-            </div> */}
           </div>
         </section>
       </div>

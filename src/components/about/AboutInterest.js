@@ -101,6 +101,12 @@ class AboutInterest extends React.Component {
       });
     }
 
+    // Hide hero (prevent button flicker on revealed interest)
+    this.timeline.to('.hero', { 
+      opacity: 0,
+      duration: 0.001, 
+    })
+
     this.timeline
       // Reveal interest bg
       .to(this.imageRef, { 
@@ -247,6 +253,12 @@ class AboutInterest extends React.Component {
 
       // Zoom into image
       .to(this.imageRef, { z: 400, duration: 0.5 }, "-=0.250")
+
+      // Show hero
+      .to('.hero', { 
+        opacity: 1,
+        duration: 0.001, 
+      })
 
       .to('.hero .hero__content', { 
         x: 0,

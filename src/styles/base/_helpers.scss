@@ -8,9 +8,13 @@
   box-sizing: inherit;
 }
 
-html, body {
-  height: -webkit-fill-available; // mobile viewport bug fix (safari)
+body {
+  overflow-x: hidden; // prevent content/logo overflowing
 }
+
+// html, body {
+//   height: -webkit-fill-available; // mobile viewport bug fix (safari)
+// }
 
 html {
   box-sizing: border-box;
@@ -31,10 +35,11 @@ body {
 #root {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  // overflow: hidden;
   position: relative;
   // mobile viewport bug fix (safari)
-  min-height: -webkit-fill-available;
+  // min-height: -webkit-fill-available;
 }
 
 .page {
