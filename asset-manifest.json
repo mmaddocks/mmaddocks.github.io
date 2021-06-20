@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.14c2c4e4.chunk.css",
+    "main.css": "/static/css/main.49c994fb.chunk.css",
     "main.js": "/static/js/main.b1e785ca.chunk.js",
     "main.js.map": "/static/js/main.b1e785ca.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.f379bd61.js",
@@ -10,7 +10,7 @@
     "static/js/2.b5c28861.chunk.js.map": "/static/js/2.b5c28861.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.30fbed10.chunk.css.map": "/static/css/2.30fbed10.chunk.css.map",
-    "static/css/main.14c2c4e4.chunk.css.map": "/static/css/main.14c2c4e4.chunk.css.map",
+    "static/css/main.49c994fb.chunk.css.map": "/static/css/main.49c994fb.chunk.css.map",
     "static/js/2.b5c28861.chunk.js.LICENSE.txt": "/static/js/2.b5c28861.chunk.js.LICENSE.txt",
     "static/media/main.scss": "/static/media/Inter.var.a738a131.woff2",
     "static/media/communicator-app.fb8d2a28.png": "/static/media/communicator-app.fb8d2a28.png",
@@ -23,7 +23,7 @@
     "static/js/runtime-main.f379bd61.js",
     "static/css/2.30fbed10.chunk.css",
     "static/js/2.b5c28861.chunk.js",
-    "static/css/main.14c2c4e4.chunk.css",
+    "static/css/main.49c994fb.chunk.css",
     "static/js/main.b1e785ca.chunk.js"
   ]
 }
