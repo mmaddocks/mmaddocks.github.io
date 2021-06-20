@@ -49,7 +49,7 @@ body {
   // top: 0;
   // left: 0; // needed for animation between page
   // right: 0; // needed for animation between page
-  // overflow: hidden;
+  padding-top: $nav-height;
 
   a {
     position: relative;

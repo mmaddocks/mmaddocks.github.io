@@ -4,14 +4,16 @@
 ============================== */
 @mixin featured-projects() {
   .featured-projects {
-    display: flex;
-    align-items: center;
-    position: relative;
     padding: 50px 0;
 
     @include media-breakpoint(md) {
       padding: 0;
       margin: 100px 0;
+    }
+
+    .aos-wrapper {
+      display: flex;
+      align-items: center;
     }
 
     .logo-brace {
@@ -39,6 +41,8 @@
     }
 
     .content {
+      flex: 1;
+
       @include media-breakpoint(md) {
         margin-left: 40px;
       }
@@ -83,7 +87,7 @@
       font-size: 1.25em;
 
       @include media-breakpoint(md) {
-        position: absolute; // remove from flow for alignment
+        // position: absolute; // remove from flow for alignment
         @include title-line();
       }
 

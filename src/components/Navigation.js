@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
+import smoothscroll from "smoothscroll-polyfill";
 
 const Navigation = (props) => {
   useEffect(() => {
+    smoothscroll.polyfill();
     // On page load/refresh with hash in url scroll to projects
     if (window.location.hash) {
       const id = window.location.hash.replace("#", "");
@@ -16,10 +18,7 @@ const Navigation = (props) => {
     <header>
       <div className="container">
         <nav className="nav">
-          <Link
-            to="/"
-            className="nav__item--home  nav__item"
-          >
+          <Link to="/" className="nav__item--home  nav__item">
             <svg
               id="logo"
               xmlns="http://www.w3.org/2000/svg"
@@ -57,10 +56,7 @@ const Navigation = (props) => {
               />
             </svg>
           </Link>
-          <NavLink
-            to="/about"
-            className="nav__item--about  nav__item"
-          >
+          <NavLink to="/about" className="nav__item--about  nav__item">
             About
           </NavLink>
           <NavHashLink

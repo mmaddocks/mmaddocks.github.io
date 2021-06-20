@@ -2,11 +2,15 @@ import React from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "react-feather";
 import Page from "../Page";
-import communicatorPng from "../../assets/projects/communicator-app.png";
+// import communicatorPng from "../../assets/projects/communicator-app.png";
+import communicatorJpg from "../../assets/projects/communicator-app-square.jpg";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
-import energyApp from "../../assets/projects/energy-app.png";
-import webApp from "../../assets/projects/web-app.png";
+// import energyApp from "../../assets/projects/energy-app.png";
+import energyApp from "../../assets/projects/energy-app-square.jpg";
+// import webApp from "../../assets/projects/web-app.png";
+import webApp from "../../assets/projects/web-app-square.jpg";
 import HomeProject from "./HomeProject";
+import smoothscroll from "smoothscroll-polyfill";
 
 // Scroll Animation
 import AOS from "aos";
@@ -16,6 +20,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      animate: true,
       isLoaded: false,
       projects: [
         {
@@ -25,7 +30,7 @@ class Home extends React.Component {
             "Internal communications mobile app to keep all employees connected.",
           projectDesc:
             "Communicator is a ‘white label’ mobile app that ensures all stakeholders are updated with the latest information about your company, in real-time, wherever they are.",
-          projectImage: communicatorPng,
+          projectImage: communicatorJpg,
           placement: "left",
         },
         {
@@ -54,8 +59,22 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.stageHomePage();
     AOS.init();
+    smoothscroll.polyfill();
+    
+    // Check for token
+    if (window.sessionStorage.getItem("firstLoadDone") === null) {
+      this.setState({
+        animate: true,
+      });
+      // Set token & initialise animation
+      window.sessionStorage.setItem("firstLoadDone", true);
+      this.stageHomePage();
+    } else {
+      this.setState({
+        animate: false,
+      });
+    }
   }
 
   stageHomePage = () => {
@@ -63,7 +82,7 @@ class Home extends React.Component {
     gsap.set(".home-page .welcome h1", { opacity: 0, translateY: "100px" });
     gsap.set(".home-page .welcome__intro", { opacity: 0, translateX: "-50px" });
     gsap.set(".home-page .welcome__link", { opacity: 0, translateX: "-50px" });
-    // gsap.set(".home-page .links", { opacity: 0, translateY: "10px" });
+    gsap.set(".nav", { opacity: 0, translateY: "-50px" });
 
     // Init timeline
     this.homePageTimeline();
@@ -85,12 +104,21 @@ class Home extends React.Component {
     });
     // Draw logo
     timeline.set(".home-page .logo", { className: "logo animate" }); // working on parent
+
     // Intro
     timeline.to(".home-page .welcome__intro", {
       translateX: 0,
       opacity: 1,
       duration: 1,
     });
+
+    // Nav
+    timeline.to(".nav", {
+      translateY: 0,
+      opacity: 1,
+      duration: 0.5,
+    });
+
     // Learn more button
     timeline.to(".home-page .welcome__link", {
       translateX: 0,
@@ -98,12 +126,6 @@ class Home extends React.Component {
       duration: 1,
       delay: 0.5,
     });
-    // Links
-    // timeline.to(".home-page .links", {
-    //   translateY: 0,
-    //   opacity: 1,
-    //   duration: 0.5,
-    // });
 
     return timeline;
   };
@@ -136,7 +158,8 @@ class Home extends React.Component {
               </div>
             </div>
 
-            <div className="logo">
+            {/* If animate = false, just show logo */}
+            <div className={this.state.animate ? 'logo' : 'logo show'}>
               <svg
                 id="logo"
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,56 +216,61 @@ class Home extends React.Component {
             ref={this.featuredProjectsRef}
             id="featured-projects"
             className="featured-projects"
-            // data-aos="fade-up"
-            // data-aos-anchor-placement="top-center"
           >
-            <div className="logo-brace">
-              <svg
-                width="100%"
-                height="100%"
-                viewBox="0 0 203 650"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient
-                    id="logo-brace-linear-gradient"
-                    x1="-571"
-                    y1="650"
-                    x2="-681.388"
-                    y2="19.322"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop
-                      className="colour-stop-1"
-                      offset="0"
-                      stopColor="currentColor"
-                    />
-                    <stop
-                      className="colour-stop-2"
-                      offset="1"
-                      stopColor="currentColor"
-                    />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M0.94519 650V583.058C23.5748 583.058 38.8935 580.658 46.9015 575.858C54.8995 571.057 58.9032 562.42 58.9126 549.946V380.787C58.9126 347.2 77.1308 327.765 113.567 322.481C77.1282 316.718 58.91 297.043 58.9126 263.454V107.255C58.9126 92.3858 54.3568 81.7084 45.2451 75.2228C36.1323 68.7461 27.1608 65.5072 18.3307 65.5062H15.8484L0.943604 66.9438V0H29.096C104.166 0 141.707 31.6721 141.719 95.0163V244.74C141.719 261.063 145.03 272.581 151.651 279.294C158.281 286.019 168.771 289.378 183.123 289.373H203V356.316H183.123C168.762 356.316 158.271 359.555 151.651 366.032C145.031 372.51 141.72 383.668 141.719 399.506V554.986C141.723 618.329 104.182 650 29.0975 650H0.94519Z"
-                  fill="url(#logo-brace-linear-gradient)"
-                />
-              </svg>
-            </div>
-
-            <div className="content">
-              <div className="content__title">
-                <h3>Featured</h3>
-                <h2>Projects</h2>
+            {/* NOTE: AOS styles need to be seperate to scroll-to container (#featured-projects) for scroll alignment */}
+            <div
+              className="aos-wrapper"
+              data-aos="fade-up"
+              // data-aos-anchor-placement="top-center"
+            >
+              <div className="logo-brace">
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 203 650"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient
+                      id="logo-brace-linear-gradient"
+                      x1="-571"
+                      y1="650"
+                      x2="-681.388"
+                      y2="19.322"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop
+                        className="colour-stop-1"
+                        offset="0"
+                        stopColor="currentColor"
+                      />
+                      <stop
+                        className="colour-stop-2"
+                        offset="1"
+                        stopColor="currentColor"
+                      />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    d="M0.94519 650V583.058C23.5748 583.058 38.8935 580.658 46.9015 575.858C54.8995 571.057 58.9032 562.42 58.9126 549.946V380.787C58.9126 347.2 77.1308 327.765 113.567 322.481C77.1282 316.718 58.91 297.043 58.9126 263.454V107.255C58.9126 92.3858 54.3568 81.7084 45.2451 75.2228C36.1323 68.7461 27.1608 65.5072 18.3307 65.5062H15.8484L0.943604 66.9438V0H29.096C104.166 0 141.707 31.6721 141.719 95.0163V244.74C141.719 261.063 145.03 272.581 151.651 279.294C158.281 286.019 168.771 289.378 183.123 289.373H203V356.316H183.123C168.762 356.316 158.271 359.555 151.651 366.032C145.031 372.51 141.72 383.668 141.719 399.506V554.986C141.723 618.329 104.182 650 29.0975 650H0.94519Z"
+                    fill="url(#logo-brace-linear-gradient)"
+                  />
+                </svg>
               </div>
 
-              <div className="content__intro">
-                <p>
-                  A selection of projects that I’ve worked on as a Designer and
-                  Developer.
-                </p>
+              <div className="content">
+                <div className="content__title">
+                  <h3>Featured</h3>
+                  <h2>Projects</h2>
+                </div>
+
+                <div className="content__intro">
+                  <p>
+                    A selection of projects that I’ve worked on as a Designer
+                    and Developer.
+                  </p>
+                </div>
               </div>
             </div>
           </section>

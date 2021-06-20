@@ -9,17 +9,18 @@
     align-items: center;
     position: relative;
     min-height: calc(100vh - #{$nav-height});
-    // mobile viewport bug fix (safari)
-    // min-height: -webkit-fill-available;
   }
 
   .welcome {
+    margin-top: -20vh;
+    
     @include media-breakpoint(sm) {
       width: 75%;
     }
 
     @include media-breakpoint(md) {
       width: 50%;
+      margin-top: -10vh;
     }
 
     /* ==============================
@@ -77,11 +78,15 @@
       width: 100%;
       display: flex;
       align-items: center;
-      margin-top: 1em;
+      margin-top: 1.25rem;
       margin-left: auto;
       position: relative;
       font-size: 1.25em;
-      @include title-line();
+      @include title-line('before', 30%);
+
+      @include media-breakpoint(sm) {
+        @include title-line('before', 50%);
+      }
 
       @include media-breakpoint(lg) {
         font-size: 1.5em;
@@ -95,12 +100,11 @@
     .welcome__link {
       display: flex;
       justify-content: flex-end;
-      margin-top: 1em;
+      margin-top: 1.25rem;
 
       button {
         display: flex;
         align-items: center;
-        // font-size: 0.875em;
         font-size: 1em;
         text-transform: uppercase;
         letter-spacing: $spaced-letter-spacing;

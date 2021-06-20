@@ -1,7 +1,8 @@
 // NAV STYLES
 
 header {
-  position: relative;
+  width: 100%;
+  position: absolute;
   z-index: 1;
 
   .nav {
@@ -9,7 +10,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ($default-padding / 2) 0;
+    padding: ($default-padding / 2) 0 0;
   
     @include media-breakpoint(md) {
       justify-content: flex-end;
@@ -49,6 +50,10 @@ header {
             color: $gradient-green;
           }
         }
+      }
+
+      &.nav__item--home {
+        padding-bottom: 0;
       }
 
       &:last-of-type {
