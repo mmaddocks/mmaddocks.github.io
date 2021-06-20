@@ -17,6 +17,7 @@ header {
   
     .nav__item {
       margin: 0 0.5em;
+      padding-bottom: 0.5em;
       font-size: 0.875em;
       font-weight: 400;
       text-transform: uppercase;
@@ -52,6 +53,10 @@ header {
 
       &:last-of-type {
         margin-right: 0;
+      }
+
+      &.active {
+        border-bottom: 1px solid $secondary-colour;
       }
 
     }

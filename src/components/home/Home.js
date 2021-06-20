@@ -5,12 +5,12 @@ import Page from "../Page";
 import communicatorPng from "../../assets/projects/communicator-app.png";
 // import communicatorSvg from '../../assets/projects/communicator-app.svg';
 import energyApp from "../../assets/projects/energy-app.png";
-import webApp from "../../assets/projects/web-app.png"
+import webApp from "../../assets/projects/web-app.png";
 import HomeProject from "./HomeProject";
 
 // Scroll Animation
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 class Home extends React.Component {
   constructor(props) {
@@ -42,7 +42,7 @@ class Home extends React.Component {
           projectName: "Web App",
           url: "web-app",
           projectLead:
-          "Internal communications web app to keep all employees connected.",
+            "Internal communications web app to keep all employees connected.",
           projectDesc:
             "Designed and built a ‘white label’ internal corporate communications web app (the sibling to Communicator).",
           projectImage: webApp,
@@ -109,8 +109,8 @@ class Home extends React.Component {
   };
 
   handleHeroButtonClick = () => {
-    this.featuredProjectsRef.current.scrollIntoView({ behavior: 'smooth' });
-  }
+    this.featuredProjectsRef.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   render() {
     return (
@@ -189,7 +189,13 @@ class Home extends React.Component {
             </div>
           </section>
 
-          <section ref={this.featuredProjectsRef} id="featured-projects" className="featured-projects" data-aos="fade-up" data-aos-anchor-placement="top-center">
+          <section
+            ref={this.featuredProjectsRef}
+            id="featured-projects"
+            className="featured-projects"
+            // data-aos="fade-up"
+            // data-aos-anchor-placement="top-center"
+          >
             <div className="logo-brace">
               <svg
                 width="100%"

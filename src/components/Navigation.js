@@ -1,14 +1,14 @@
-import React, {useEffect} from "react";
-import { Link } from "react-router-dom";
-import { NavHashLink } from 'react-router-hash-link';
+import React, { useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 const Navigation = (props) => {
   useEffect(() => {
-     // On page load/refresh with hash in url scroll to projects
-     if (window.location.hash) {
+    // On page load/refresh with hash in url scroll to projects
+    if (window.location.hash) {
       const id = window.location.hash.replace("#", "");
       const element = document.getElementById(id);
-      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      element.scrollIntoView({ block: "start", behavior: "smooth" });
     }
   });
 
@@ -16,7 +16,10 @@ const Navigation = (props) => {
     <header>
       <div className="container">
         <nav className="nav">
-          <Link to="/" className="nav__item--home  nav__item">
+          <Link
+            to="/"
+            className="nav__item--home  nav__item"
+          >
             <svg
               id="logo"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,14 +57,16 @@ const Navigation = (props) => {
               />
             </svg>
           </Link>
-          <Link to="/about" className="nav__item">
+          <NavLink
+            to="/about"
+            className="nav__item--about  nav__item"
+          >
             About
-          </Link>
+          </NavLink>
           <NavHashLink
             smooth
             to="/#featured-projects"
-            activeClassName="selected"
-            className="nav__item"
+            className="nav__item--projects  nav__item"
           >
             Projects
           </NavHashLink>
