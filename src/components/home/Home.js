@@ -142,6 +142,7 @@ class Home extends React.Component {
             <div className="welcome">
               <div className="welcome__title">
                 <h1>Hello,</h1>
+                {/* &#x1F44B; */}
                 <h1>
                   I'm <strong>Mark</strong>
                 </h1>

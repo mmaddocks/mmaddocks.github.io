@@ -36,10 +36,10 @@ const Footer = (props) => {
 
           </div>
           <div className="created">
-              <p>Designed in <FontAwesomeIcon icon={faFigma} /></p>
-              <span className="seperator">|</span>
-              <p>Built in <FontAwesomeIcon icon={faReact} /></p>
-            </div>
+            <p>Designed in <FontAwesomeIcon icon={faFigma} /></p>
+            <span className="seperator">|</span>
+            <p>Built in <FontAwesomeIcon icon={faReact} /></p>
+          </div>
           <div className="meta">
 
             {/* <div className="created">
