@@ -126,9 +126,14 @@ $container-width: 1080px;
 
     .section-title {
       display: flex;
-      align-items: center;
-      font-size: 3rem;
+      align-items: flex-start;
+      font-size: 2rem;
       text-transform: uppercase;
+
+      @include media-breakpoint(md) {
+        align-items: center;
+        font-size: 3rem;
+      }
 
       .section-title__number {
         margin-right: 0.25em;
@@ -140,6 +145,7 @@ $container-width: 1080px;
         @include title-line("before", 100%, 2px, 0.5em) {
           position: absolute;
           right: 100%;
+          max-width: 100px; // limit size
         }
       }
     }
@@ -151,8 +157,9 @@ $container-width: 1080px;
 
     .section__content {
       display: flex;
+      flex-wrap: wrap;
 
-      p {
+      p, li {
         font-size: 1rem;
         @include media-breakpoint(lg) {
           font-size: 1.25rem;
@@ -160,13 +167,24 @@ $container-width: 1080px;
       }
 
       .col {
+        width: 100%;
+
         &:nth-of-type(1) {
-          width: 50%;
+          margin-bottom: 50px;
         }
-        &:nth-of-type(2) {
-          width: auto;
-          margin: 0 auto;
+
+        @include media-breakpoint(md) {
+          &:nth-of-type(1) {
+            width: 50%;
+            margin-bottom: 0;
+          }
+          &:nth-of-type(2) {
+            width: auto;
+            max-width: 50%;
+            margin: 0 auto;
+          }
         }
+
       }
 
     }
@@ -204,5 +222,257 @@ $container-width: 1080px;
         color: $secondary-colour;
       }
     }
+
+    &.section--process {
+      background-color: rgba($primary-colour, 0.03);
+
+      .section--process__process {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+
+        @include media-breakpoint(md) {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .step {
+          width: 50%;
+          position: relative;
+          margin: 0 auto;
+          padding-bottom: 34px; // Same as icon + 10px
+
+          @include media-breakpoint(md) {
+            width: 25%;
+            position: relative;
+            padding-bottom: 0;
+            padding-right: 34px; // Same as icon + 10px
+          }
+
+          @include media-breakpoint(lg) {
+            width: 20%;
+          }
+
+          .step__circle {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            border-radius: 50%;
+            color: #fff;
+            background-color: $secondary-colour;
+          }
+
+          .step__label {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 0 20px;
+
+            @include media-breakpoint(md) {
+              font-size: 1.15rem;
+            }
+
+            @include media-breakpoint(lg) {
+              font-size: 1.25rem;
+            }
+          }
+
+          .step__arrow {
+            position: absolute;
+            bottom: 5px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+            transform: rotate(90deg);
+
+            @include media-breakpoint(md) {
+              top: 50%;
+              bottom: auto;
+              left: auto;
+              right: 5px;
+              transform: translateY(-50%);
+            }
+          }
+
+          &.step-end {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-right: 0;
+
+            .step__emoji {
+              font-size: 4rem;
+            }
+
+            .step__label {
+              position: static;
+              transform: initial;
+            }
+          }
+        }
+      }
+    }
+
+    &.section--research {
+      .section__content {
+        .col {
+          width: 100%;
+        }
+      }
+
+      .lead {
+        text-transform: uppercase;
+      }
+
+      .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 4rem 0;
+
+        table {
+          width: 100%;
+          min-width: 450px;
+          border-collapse: collapse;
+  
+          th, td {
+            width: 25%;
+            padding: 10px;
+            text-align: center;
+          }
+  
+          th {
+            img {
+              max-width: 100%;
+              max-height: 40px;
+              width: auto;
+              height: auto;
+            }
+          }
+  
+          tbody  {
+  
+            tr {
+              border-bottom: 1px solid rgba($primary-colour, 0.2);
+            }
+  
+            th {
+              text-align: left;
+            }
+  
+            td {
+              font-size: 1.5rem;
+            }
+  
+            svg {
+              &.yes {
+                color: $green-icon-colour;
+              }
+              &.no {
+                color: $red-icon-colour;
+              }
+            }
+  
+          }
+  
+        }
+      }
+
+
+
+      .section--research__quote {
+        width: 100%;
+        margin: 6rem auto;
+
+        @include media-breakpoint(md) {
+          width: 75%;
+        }
+
+        blockquote {
+          margin: 0;
+          padding: 20px 40px;
+          position: relative;
+          font-size: 1.25rem;
+          font-weight: 700;
+
+          @include media-breakpoint(md) {
+            padding: 40px 80px;
+            font-size: 1.5rem;
+          }
+
+          &::before,
+          &::after {
+            position: absolute;
+            height: 2.5rem;
+            font-size: 5rem;
+            line-height: 1;
+
+            @include media-breakpoint(md) {
+              height: 5rem;
+              font-size: 10rem;
+            }
+          }
+
+          &::before {
+            content: open-quote;
+            top: 0;
+            left: 0;
+          }
+
+          &::after {
+            content: close-quote;
+            right: 0;
+            bottom: 0;
+          }
+        }
+
+        p {
+          padding: 0 40px;
+          color: $secondary-colour;
+
+          @include media-breakpoint(md) {
+            padding: 0 80px;
+          }
+        }
+      }
+
+      .section--research__user-research {
+
+        ol {
+          counter-reset: zero-prefix-counter;
+          width: 90%;
+          margin: 2rem auto;
+          padding: 0;
+          list-style: none;
+
+          li {
+            counter-increment: zero-prefix-counter;
+            display: flex;
+            margin-bottom: 1em;
+
+            &::before {
+              content: "0" counter(zero-prefix-counter);
+              flex: 0 0 40px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+    }
+
+    &.section--solution {
+      background-color: rgba($primary-colour, 0.03);
+
+      .section__content {
+        .col {
+          width: 100%;
+        }
+      }
+    }
+
   }
 }

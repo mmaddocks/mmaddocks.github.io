@@ -10,7 +10,8 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ($default-padding / 2) 0 0;
+    // padding: ($default-padding / 2) 0 0;
+    padding: 30px 0;
   
     @include media-breakpoint(md) {
       justify-content: flex-end;

@@ -56,8 +56,7 @@
         }
 
         @include media-breakpoint(lg) {
-          // font-size: 6.25em;
-          font-size: 7.25em;
+          font-size: 6.25em;
         }
       }
 
@@ -130,8 +129,8 @@
     width: 40%;
     height: 110%;
     position: absolute;
-    // top: $nav-height + ($nav-height / 2);
-    top: ($nav-height / 2);
+    // top: ($nav-height / 2);
+    top: $nav-height;
     right: 0;
     pointer-events: none;
     display: none;

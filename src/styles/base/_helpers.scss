@@ -8,10 +8,6 @@
   box-sizing: inherit;
 }
 
-body {
-  overflow-x: hidden; // prevent content/logo overflowing
-}
-
 // html, body {
 //   height: -webkit-fill-available; // mobile viewport bug fix (safari)
 // }
@@ -23,11 +19,17 @@ html {
 body {
   width: 100%;
   margin: 0;
+  overflow-x: hidden; // prevent content/logo overflowing
   font-family: $body-font;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-weight: 300;
   color: $font-colour;
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 /* Helpers

@@ -2,12 +2,8 @@ import React from "react";
 import { gsap } from "gsap";
 import { ArrowRight } from "react-feather";
 import Page from "../Page";
-// import communicatorPng from "../../assets/projects/communicator-app.png";
-import communicatorJpg from "../../assets/projects/communicator-app-square.jpg";
-// import communicatorSvg from '../../assets/projects/communicator-app.svg';
-// import energyApp from "../../assets/projects/energy-app.png";
+import communicatorJpg from "../../assets/projects/communicator/communicator-app-square.jpg";
 import energyApp from "../../assets/projects/energy-app-square.jpg";
-// import webApp from "../../assets/projects/web-app.png";
 import webApp from "../../assets/projects/web-app-square.jpg";
 import HomeProject from "./HomeProject";
 import smoothscroll from "smoothscroll-polyfill";
@@ -61,7 +57,7 @@ class Home extends React.Component {
   componentDidMount() {
     AOS.init();
     smoothscroll.polyfill();
-    
+
     // Check for token
     if (window.sessionStorage.getItem("firstLoadDone") === null) {
       this.setState({
@@ -140,9 +136,15 @@ class Home extends React.Component {
         <div className="container">
           <section className="hero">
             <div className="welcome">
-              <div className="welcome__title">
+              {/* If animation has already ran, just show highlight */}
+              <div
+                className={
+                  this.state.animate
+                    ? "welcome__title"
+                    : "welcome__title show-highlight"
+                }
+              >
                 <h1>Hello,</h1>
-                {/* &#x1F44B; */}
                 <h1>
                   I'm <strong>Mark</strong>
                 </h1>
@@ -159,8 +161,8 @@ class Home extends React.Component {
               </div>
             </div>
 
-            {/* If animate = false, just show logo */}
-            <div className={this.state.animate ? 'logo' : 'logo show'}>
+            {/* If animation has already ran, just show logo */}
+            <div className={this.state.animate ? "logo" : "logo show"}>
               <svg
                 id="logo"
                 xmlns="http://www.w3.org/2000/svg"

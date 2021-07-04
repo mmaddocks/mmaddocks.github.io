@@ -38,6 +38,7 @@
         @include title-line("before", 100%, 2px, 1em) {
           position: absolute;
           right: 100%;
+          max-width: 100px; // limit size
         }
       }
 
