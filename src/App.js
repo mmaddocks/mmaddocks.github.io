@@ -7,9 +7,8 @@ import About from "./components/about/About";
 import Project from "./components/project/Project";
 import Navigation from "./components/Navigation";
 
-// This is a test to force a gh pages update
-
 // UI
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./styles/main.scss";
 
 class App extends React.Component {

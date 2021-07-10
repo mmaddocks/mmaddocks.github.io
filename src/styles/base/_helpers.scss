@@ -4,17 +4,9 @@
 
 /* Elements 
 ============================== */
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-
 // html, body {
 //   height: -webkit-fill-available; // mobile viewport bug fix (safari)
 // }
-
-html {
-  box-sizing: border-box;
-}
 
 body {
   width: 100%;
@@ -37,8 +29,6 @@ img {
 #root {
   width: 100%;
   min-height: 100vh;
-  // overflow-x: hidden;
-  // overflow: hidden;
   position: relative;
   // mobile viewport bug fix (safari)
   // min-height: -webkit-fill-available;
@@ -46,27 +36,10 @@ img {
 
 .page {
   // @NOTE: position: absolute prevents scroll to top on route change
-
   // position: absolute; // needed for animation
-  // top: 0;
-  // left: 0; // needed for animation between page
-  // right: 0; // needed for animation between page
   padding-top: $nav-height;
 
   a {
     position: relative;
   }
 }
-
-/**
- * Main content containers
- */
-.container {
-  width: 100%;
-  max-width: $container-max-width; 
-  margin-left: auto; 
-  margin-right: auto;
-  padding-left: $default-padding;
-  padding-right: $default-padding; 
-  position: relative;
- }

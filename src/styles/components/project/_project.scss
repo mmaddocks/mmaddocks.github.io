@@ -1,36 +1,28 @@
 // PROJECT PAGE
 
 $image-width: 275px;
-$container-width: 1080px;
 
 .project-page {
   position: relative; // scrolltop fix but page moves slightly
-
-  .container {
-    max-width: $container-width; // As per mockup
-  }
 
   /* ==============================
     * HERO 
   ============================== */
   .hero {
-    display: flex;
-    flex-direction: column;
     padding-bottom: $nav-height;
 
-    @include media-breakpoint(md) {
-      flex-direction: row;
-      align-items: center;
-    }
-
     .hero__text {
-      width: $image-width;
+      max-width: $image-width;
       margin: 50px auto;
       line-height: 1;
 
       @include media-breakpoint(md) {
-        width: 60%;
-        margin: 0;
+        max-width: 420px;
+      }
+
+      @include media-breakpoint(lg) {
+        max-width: 100%;
+        margin: -100px 0 0 0; // offset vertical centre
       }
 
       h3 {
@@ -75,8 +67,11 @@ $container-width: 1080px;
         font-size: 1rem;
 
         @include media-breakpoint(md) {
-          @include title-line();
           font-size: 1.25rem;
+        }
+
+        @include media-breakpoint(lg) {
+          @include title-line();
         }
 
         @include media-breakpoint(xl) {
@@ -90,14 +85,6 @@ $container-width: 1080px;
     }
 
     .hero__image {
-      @include media-breakpoint(md) {
-        padding-left: 30px;
-      }
-
-      @include media-breakpoint(xl) {
-        padding-left: 60px;
-      }
-
       img {
         max-width: $image-width;
         width: 100%;
@@ -105,10 +92,6 @@ $container-width: 1080px;
         display: block;
         margin: 0 auto;
         filter: drop-shadow(0px 4px 15px rgba(#000, 0.5));
-
-        @include media-breakpoint(md) {
-          margin: 0;
-        }
       }
     }
   }
@@ -126,6 +109,8 @@ $container-width: 1080px;
     .section-title {
       display: flex;
       align-items: flex-start;
+      position: relative;
+      margin-bottom: 0.75em;
       font-size: 2rem;
       text-transform: uppercase;
 
@@ -140,7 +125,7 @@ $container-width: 1080px;
         color: $secondary-colour;
       }
   
-      @include media-breakpoint(md) {
+      @include media-breakpoint(lg) {
         @include title-line("before", 100%, 2px, 0.5em) {
           position: absolute;
           right: 100%;
@@ -165,34 +150,22 @@ $container-width: 1080px;
         }
       }
 
-      .col {
-        width: 100%;
-
-        &:nth-of-type(1) {
-          margin-bottom: 50px;
-        }
-
-        @include media-breakpoint(md) {
-          &:nth-of-type(1) {
-            width: 50%;
-            margin-bottom: 0;
-          }
-          &:nth-of-type(2) {
-            width: auto;
-            max-width: 50%;
-            margin: 0 auto;
-          }
-        }
-
-      }
-
     }
 
     &.section--overview {
       background-color: rgba($primary-colour, 0.03);
 
       .highlight {
-        margin-bottom: 2rem;
+        &:first-of-type {
+          margin-bottom: 2rem;
+          padding-top: 2rem;
+          border-top: 1px dashed rgba($primary-colour, 0.2);
+          
+          @include media-breakpoint(md) {
+            padding-top: 0;
+            border-top: initial;
+          }
+        }
 
         .highlight__title {
           display: inline-block;
@@ -217,32 +190,55 @@ $container-width: 1080px;
       }
 
       .technology {
-        margin-top: 2em;
+        margin: 2em 0;
         color: $secondary-colour;
+      }
+    }
+
+    &.section--problem {
+      .graphic-container {
+        max-width: 75%;
+        margin: 50px auto 0 auto;
+
+        @include media-breakpoint(md) {
+          margin: 0 auto;
+        }
       }
     }
 
     &.section--process {
       background-color: rgba($primary-colour, 0.03);
 
+      .graphic-container {
+        max-width: 60%;
+        margin: 50px auto 0 auto;
+
+        @include media-breakpoint(md) {
+          margin: 0 auto;
+        }
+      }
+
       .section--process__process {
         display: flex;
         flex-direction: column;
-        margin-top: 2rem;
+        margin-top: 50px;
 
         @include media-breakpoint(md) {
           flex-direction: row;
           flex-wrap: wrap;
+          margin-top: 75px;
         }
 
         .step {
           width: 50%;
+          max-width: 175px;
           position: relative;
           margin: 0 auto;
           padding-bottom: 34px; // Same as icon + 10px
 
           @include media-breakpoint(md) {
             width: 25%;
+            max-width: 100%;
             position: relative;
             padding-bottom: 0;
             padding-right: 34px; // Same as icon + 10px
@@ -271,11 +267,7 @@ $container-width: 1080px;
             font-size: 1rem;
             padding: 0 20px;
 
-            @include media-breakpoint(md) {
-              font-size: 1.15rem;
-            }
-
-            @include media-breakpoint(lg) {
+            @include media-breakpoint(xl) {
               font-size: 1.25rem;
             }
           }
@@ -318,6 +310,7 @@ $container-width: 1080px;
     }
 
     &.section--research {
+
       .section__content {
         .col {
           width: 100%;
@@ -335,11 +328,10 @@ $container-width: 1080px;
 
         table {
           width: 100%;
-          min-width: 450px;
-          border-collapse: collapse;
   
           th, td {
             width: 25%;
+            min-width: 150px; // Force scrolling-x
             padding: 10px;
             text-align: center;
           }
@@ -487,7 +479,12 @@ $container-width: 1080px;
         );
 
         .image-group__item {
-          margin: 0 20px;
+          max-width: 275px;
+          margin: 0 auto;
+
+          @include media-breakpoint(md) {
+            max-width: 100%;
+          }
         }
       }
     }

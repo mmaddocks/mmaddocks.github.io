@@ -127,10 +127,9 @@
 
   .logo {
     width: 40%;
-    height: 110%;
+    height: 115%;
     position: absolute;
-    // top: ($nav-height / 2);
-    top: $nav-height;
+    top: 0;
     right: 0;
     pointer-events: none;
     display: none;
