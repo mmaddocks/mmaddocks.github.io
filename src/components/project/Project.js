@@ -300,6 +300,28 @@ const Project = (props) => {
             <div className="section__content">
               <div className="col">
                 <p className="lead">What would a ‘white label’ internal communications mobile app look like?</p>
+                <div className="image-group">
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                </div>
+                <div className="image-group">
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                  <div className="image-group__item">
+                    <img src={communicatorPng} alt="" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

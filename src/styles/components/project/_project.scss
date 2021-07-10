@@ -16,7 +16,7 @@ $container-width: 1080px;
   .hero {
     display: flex;
     flex-direction: column;
-    padding: ($nav-height / 2) 0 $nav-height 0;
+    padding-bottom: $nav-height;
 
     @include media-breakpoint(md) {
       flex-direction: row;
@@ -112,7 +112,6 @@ $container-width: 1080px;
       }
     }
   }
-
 
   /* ==============================
     * SECTIONS 
@@ -470,6 +469,25 @@ $container-width: 1080px;
       .section__content {
         .col {
           width: 100%;
+        }
+      }
+
+      .image-group {
+        display: flex;
+        margin: 50px 0;
+        padding: 50px;
+        border-radius: 20px;
+        background: linear-gradient(
+          58.22deg,
+          rgba(#375b7b, 0.3),
+          rgba(#665f9c, 0.3),
+          rgba(#b1539a, 0.3),
+          rgba(#ea476f, 0.3),
+          rgba(#f86624, 0.3)
+        );
+
+        .image-group__item {
+          margin: 0 20px;
         }
       }
     }
