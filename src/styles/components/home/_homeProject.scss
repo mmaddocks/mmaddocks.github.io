@@ -4,27 +4,25 @@
 ============================== */
 @mixin home-projects() {
   .project {
-    display: flex;
     padding: 50px 0;
-    flex-direction: column-reverse;
 
     @include media-breakpoint(md) {
-      flex-direction: row;
       padding: 100px 0;
     }
 
     .project__content {
-      width: 100%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       margin-top: 2rem;
       font-size: 1rem;
 
       @include media-breakpoint(md) {
-        width: 50%;
-        margin-top: 0;
-        padding-right: 40px;
         font-size: 1.25rem; // 20px
+      }
+
+      @include media-breakpoint(lg) {
+        margin-top: 0;
       }
     }
 
@@ -69,46 +67,14 @@
     }
 
     .project__image {
-      width: 100%;
-      display: flex;
-      justify-content: center;
       border-radius: 20px;
-      // padding: 40px;
       overflow: hidden;
-
-      @include media-breakpoint(md) {
-        width: 50%;
-      }
-
-      img {
-        // width: auto;
-        // height: 50vh;
-
-        // @include media-breakpoint(md) {
-        //   height: 65vh;
-        // }
-
-        width: 100%;
-        height: auto;
-      }
     }
 
     /* ==============================
      * Right aligned project 
     ============================== */
     &[data-placement="right"] {
-      flex-direction: column;
-
-      @include media-breakpoint(md) {
-        flex-direction: row;
-      }
-
-      .project__content {
-        @include media-breakpoint(md) {
-          padding-right: 0;
-          padding-left: 40px;
-        }
-      }
 
       .project__title {
         &::before {

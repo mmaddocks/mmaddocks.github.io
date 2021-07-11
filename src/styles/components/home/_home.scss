@@ -13,10 +13,6 @@
 
   .welcome {
     margin-top: -20vh;
-    
-    @include media-breakpoint(sm) {
-      width: 75%;
-    }
 
     @include media-breakpoint(md) {
       width: 50%;

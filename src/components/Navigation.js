@@ -3,6 +3,9 @@ import { Link, NavLink } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 import smoothscroll from "smoothscroll-polyfill";
 
+// UI
+import Container from "react-bootstrap/Container";
+
 const Navigation = (props) => {
   useEffect(() => {
     smoothscroll.polyfill();
@@ -16,7 +19,7 @@ const Navigation = (props) => {
 
   return (
     <header>
-      <div className="container">
+      <Container>
         <nav className="nav">
           <Link to="/" className="nav__item--home  nav__item">
             <svg
@@ -70,7 +73,7 @@ const Navigation = (props) => {
             Resume
           </a>
         </nav>
-      </div>
+      </Container>
     </header>
   );
 };
