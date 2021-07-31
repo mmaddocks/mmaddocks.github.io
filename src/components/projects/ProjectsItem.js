@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-const HomeProject = (props) => {
+const ProjectsItem = (props) => {
   const {
     projectName,
     projectImage,
@@ -79,4 +79,4 @@ const HomeProject = (props) => {
   }
 };
 
-export default HomeProject;
+export default ProjectsItem;

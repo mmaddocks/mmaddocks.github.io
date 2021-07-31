@@ -293,7 +293,6 @@ class AboutInterest extends React.Component {
             <div className="interest__title  animate">
               {this.props.interest.svgTitle}
             </div>
-            {/* <p className="animate">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> */}
             <button className="close interest-btn" onClick={this.handleClick}>
               <ArrowLeft />
             </button>

@@ -4,8 +4,9 @@ import { Transition, TransitionGroup } from "react-transition-group";
 import { play, exit } from "./timelines";
 import Home from "./components/home/Home";
 import About from "./components/about/About";
-import Project from "./components/project/Project";
-import Navigation from "./components/Navigation";
+import ProjectsPage from "./components/projects/ProjectsPage";
+import ProjectsSinglePage from "./components/projects/ProjectsSinglePage";
+import Navigation from "./components/utils/Navigation";
 
 // UI
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -35,8 +36,11 @@ class App extends React.Component {
                     <Route exact path="/about">
                       <About />
                     </Route>
+                    <Route exact path="/projects">
+                      <ProjectsPage />
+                    </Route>
                     <Route exact path="/projects/:project">
-                      <Project />
+                      <ProjectsSinglePage />
                     </Route>
                   </Switch>
                 </Transition>

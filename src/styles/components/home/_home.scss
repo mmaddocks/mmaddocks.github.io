@@ -154,11 +154,14 @@
   /* ==============================
    * Featured projects 
   ============================== */
-  @include featured-projects();
+  .featured-projects {
+    @include media-breakpoint(md) {
+      margin: 100px 0;
+    }
 
-  /* ==============================
-   * Projects 
-  ============================== */
-  @include home-projects();
+    .logo-brace {
+      width: 200px;
+    }
+  }
 
 }

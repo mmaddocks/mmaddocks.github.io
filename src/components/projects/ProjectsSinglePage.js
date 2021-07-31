@@ -1,5 +1,5 @@
 import { useRouteMatch } from "react-router-dom";
-import Page from "../Page";
+import Page from "../utils/Page";
 
 // UI
 import Container from "react-bootstrap/Container";

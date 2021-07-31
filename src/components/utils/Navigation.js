@@ -1,21 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
-import smoothscroll from "smoothscroll-polyfill";
 
 // UI
 import Container from "react-bootstrap/Container";
 
 const Navigation = (props) => {
-  useEffect(() => {
-    smoothscroll.polyfill();
-    // On page load/refresh with hash in url scroll to projects
-    if (window.location.hash) {
-      const id = window.location.hash.replace("#", "");
-      const element = document.getElementById(id);
-      element.scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  });
 
   return (
     <header>
@@ -62,13 +51,9 @@ const Navigation = (props) => {
           <NavLink to="/about" className="nav__item--about  nav__item">
             About
           </NavLink>
-          <NavHashLink
-            smooth
-            to="/#featured-projects"
-            className="nav__item--projects  nav__item"
-          >
+          <NavLink to="/projects" className="nav__item--projects  nav__item">
             Projects
-          </NavHashLink>
+          </NavLink>
           <a href="https://mmaddocks.com/resume" className="nav__item">
             Resume
           </a>

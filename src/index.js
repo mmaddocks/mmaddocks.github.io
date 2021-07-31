@@ -4,7 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/utils/ScrollToTop';
 
 // Google Analytics
 import ReactGA from 'react-ga';

@@ -1,12 +1,13 @@
-@import "./navigation";
-@import "./footer";
+@import "./utils/navigation";
+@import "./utils/footer";
 
-@import "./home/featured-projects";
-@import "./home/homeProject";
 @import "./home/home";
 
 @import "./about/AboutButton";
 @import "./about/AboutInterest";
 @import "./about/about";
 
-@import "./project/project";
+@import "./projects/projects";
+@import "./projects/projectsItem";
+@import "./projects/projectsPage";
+@import "./projects/projectsSinglePage";
