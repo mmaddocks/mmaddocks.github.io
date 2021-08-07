@@ -10,8 +10,8 @@ import Col from "react-bootstrap/Col";
 
 // Images
 import communicatorJpg from "../../assets/projects/communicator/communicator-app-square.jpg";
-import energyApp from "../../assets/projects/energy-app-square.jpg";
-import webApp from "../../assets/projects/web-app-square.jpg";
+import energyApp from "../../assets/projects/energy-app/energy-app-square.jpg";
+import webApp from "../../assets/projects/web-app/web-app-square.jpg";
 
 // Scroll Animation
 import AOS from "aos";

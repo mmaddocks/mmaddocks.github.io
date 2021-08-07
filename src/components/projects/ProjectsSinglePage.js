@@ -15,7 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ArrowRight } from "react-feather";
 
-// Images
+// Images communicator
 import communicatorHome from "../../assets/projects/communicator/communicator-app.png";
 import communicatorNews from "../../assets/projects/communicator/communicator-app-news.png";
 import communicatorDirectory from "../../assets/projects/communicator/communicator-app-directory.png";
@@ -27,6 +27,11 @@ import hcd from "../../assets/projects/communicator/hcd-graphic.svg";
 import beekeeperLogo from "../../assets/projects/communicator/competitors/beekeeper-logo.svg";
 import blinkLogo from "../../assets/projects/communicator/competitors/blink-logo.svg";
 import simpplrLogo from "../../assets/projects/communicator/competitors/simpplr-logo.svg";
+
+// Images web app
+import webAppNews from "../../assets/projects/web-app/web-app-1.png";
+import webAppContacts from "../../assets/projects/web-app/web-app-2.png";
+import webAppEvents from "../../assets/projects/web-app/web-app-3.png";
 
 const Project = (props) => {
   const data = [
@@ -71,6 +76,26 @@ const Project = (props) => {
     {
       id: "web-app",
       projectName: "Web App",
+      mockupImages: [
+        [
+          {
+            mockupName: "News",
+            mockupImage: webAppNews,
+          },
+        ],
+        [
+          {
+            mockupName: "Contacts",
+            mockupImage: webAppContacts,
+          },
+        ],
+        [
+          {
+            mockupName: "Events",
+            mockupImage: webAppEvents,
+          },
+        ],
+      ],
     },
   ];
 
@@ -97,11 +122,11 @@ const Project = (props) => {
     ];
 
     return (
-      <Page pageName="project-page">
+      <Page pageName={`${project.id} project-page`}>
         <section className="hero">
           <Container>
             <Row>
-              <Col className="flex-lg-grow-0  d-flex  align-items-center">
+              <Col lg={6} className="flex-lg-grow-0  d-flex  align-items-center">
                 <div className="hero__text">
                   <h3>Project</h3>
                   <h1>{project.projectName}</h1>
@@ -419,7 +444,90 @@ const Project = (props) => {
         </section>
       </Page>
     );
-  } else {
+  } 
+  
+  if (project.id === "web-app") {
+    return (
+      <Page pageName={`${project.id} project-page`}>
+        <section className="hero">
+          <Container>
+            <Row>
+              <Col lg={6} className="flex-lg-grow-0  d-flex  align-items-center">
+                <div className="hero__text">
+                  <h3>Project</h3>
+                  <h1>{project.projectName}</h1>
+                  <div className="hero__intro">
+                    <p>
+                      Internal corporate communications & employee engagment
+                      web app to keep all staff connected.
+                    </p>
+                  </div>
+                </div>
+              </Col>
+              <Col xs={12} lg={6} className="ml-lg-auto mr-lg-auto">
+                <div className="hero__image">
+                  <img src={webAppNews} alt="" />
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+        <section className="section--solution  section">
+          <Container>
+            <h2 className="section-title">
+              <span className="section-title__number">01</span>
+              <span className="section-title__text">Visuals</span>
+            </h2>
+            <div className="section__content">
+            <Row>
+                <Col xs={12} lg={8}>
+                  <p className="lead">
+                    What would an internal comms web app
+                    look like?
+                  </p>
+                  <p>
+                    <strong>Disclaimer:</strong> Due to project confidentiality,
+                    I am limited by what I can show, but I can show some visuals with dummy content.
+                  </p>
+                  <p className="technology">
+                    <FontAwesomeIcon icon={faReact} /> React
+                  </p>
+                </Col>
+              </Row>
+
+              {project.mockupImages.map((row, index) => {
+                return (
+                  <div key={"image-group-" + index} className="image-group">
+                    <Row className="justify-content-center">
+                      {row.map((item, index) => {
+                        let position = index + 1;
+                        return (
+                          <Col
+                            key={"col-" + index}
+                            xs={12}
+                            md={"auto"}
+                            className="my-4"
+                          >
+                            <div
+                              className={`image-group__item-${position} image-group__item`}
+                            >
+                              <img src={item.mockupImage} alt="" />
+                            </div>
+                          </Col>
+                        );
+                      })}
+                    </Row>
+                  </div>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+      </Page>
+    );
+  }
+
+  if (project.id === "energy-app") {
     return (
       <Page pageName="project-page">
         <Container>
