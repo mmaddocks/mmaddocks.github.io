@@ -5,7 +5,13 @@ object-assign
 */
 
 /*!
- * CSSPlugin 3.6.0
+  Copyright (c) 2018 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+
+/*!
+ * CSSPlugin 3.7.0
  * https://greensock.com
  *
  * Copyright 2008-2021, GreenSock. All rights reserved.
@@ -20,7 +26,7 @@ object-assign
  */
 
 /*!
- * GSAP 3.6.0
+ * GSAP 3.7.0
  * https://greensock.com
  *
  * @license Copyright 2008-2021, GreenSock. All rights reserved.
