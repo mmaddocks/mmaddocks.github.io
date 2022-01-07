@@ -15,7 +15,7 @@ const Footer = (props) => {
         <section className="footer__content">
           <div className="social">
             <a
-              href="mailto:hello&#64;mmaddocks&#46;com"
+              href="mailto:mark.maddocks&#64;icloud&#46;com"
               className="social__item--email social__item"
               target="_blank"
               rel="noreferrer"
